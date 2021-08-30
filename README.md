@@ -53,11 +53,6 @@
 
 <br />
 <br />
----
-
-
-
----
 
 [twitter]: https://twitter.com/jmartinez5120
 [instagram]: https://www.instagram.com/jmartinez5120/
