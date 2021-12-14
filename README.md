@@ -5,7 +5,8 @@
 ## I'm a Husband, Father and Developer!!
 
 - 🌱 I love learning new frameworks and keep myself up-to-date with the latest. 🤣
-- 🥅 2021 Goals: Add Spring Cloud to my personal project.
+- 🥅 2022 Goals: Grow in React and JS + Learn and practice Machine Learning
+- 🥅 2021 Goals: Learn React : Update -> DONE.
 - ⚡ Fun fact: Play Drums | Landscape Photography | Play Golf and Tennis
 
 ## Connect with me:
