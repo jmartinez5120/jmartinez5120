@@ -5,7 +5,8 @@
 ## I'm a Husband, Father and Developer!!
 
 - 🌱 I love learning new frameworks and keep myself up-to-date with the latest. 🤣
-- 🥅 2022 Goals: Grow in React and JS + Learn and practice Machine Learning
+- 🥅 2023 Goals: Learn Machine Learning, Deep Learning and Neural Networks. 
+- 🥅 2022 Goals: Grow in React and JS + Learn and practice Machine Learning -> DONE
 - 🥅 2021 Goals: Learn React : Update -> DONE.
 - ⚡ Fun fact: Play Drums | Landscape Photography | Play Golf and Tennis
 
