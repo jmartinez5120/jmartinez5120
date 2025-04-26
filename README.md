@@ -1,3 +1,5 @@
+![header](assets/github-header-image.png)
+
 ❗❗❗ **I AM WORKING ON ENHANCING THE PROFILE PAGE** ❗❗❗
 
 ### Hi there, I'm John 👋 [<img align="left" alt="LinkedIn" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" />](https://www.linkedin.com/in/john-martinez-10aba346)
