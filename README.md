@@ -1,7 +1,7 @@
 
 <picture>
-  <source srcset="assets/github-header-image-light.png" media="(prefers-color-scheme: light)">
-  <source srcset="assets/github-header-image.png" media="(prefers-color-scheme: dark)">
+  <source srcset="assets/github-header-image-light2.png" media="(prefers-color-scheme: light)">
+  <source srcset="assets/github-header-image-dark2.png" media="(prefers-color-scheme: dark)">
   <img src="assets/github-header-image.png" alt="logo" width="600">
 </picture>
 
