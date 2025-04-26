@@ -10,7 +10,7 @@
 
   <!-- Embed the banner image and apply the shadow filter -->
   <image
-    href="assets/github-header-image-light.png"
+    href="github-header-image-light.png"
     width="600"
     height="200"
     filter="url(#shadow)"
