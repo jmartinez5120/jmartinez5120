@@ -6,7 +6,7 @@
 <!-- ░░░░░░░░░░░░░░░░░░░░  ANIMATED TYPING SUBTITLE  ░░░░░░░░░░░░░░░░░░░░ -->
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=800&color=24D1F2&center=true&vCenter=true&width=720&lines=Engineering+Architect+%C2%B7+Senior+Software+Engineer;15%2B+years+building+mission-critical+systems;10%2B+years+%40+American+Express;Distributed+Systems+%C2%B7+Event-Driven+%C2%B7+CDC;Building+software+%E2%9C%A6+with+%E2%9C%A6+AI+every+day)](https://github.com/jmartinez5120)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=800&color=24D1F2&center=true&vCenter=true&width=720&lines=Engineering+Architect+%C2%B7+Senior+Software+Engineer;15%2B+years+building+mission-critical+systems;10%2B+years+%40+American+Express;Distributed+Systems+%C2%B7+Event-Driven+Architecture;Building+software+%E2%9C%A6+with+%E2%9C%A6+AI+every+day)](https://github.com/jmartinez5120)
 
 <img src="https://komarev.com/ghpvc/?username=jmartinez5120&label=Profile+Views&color=24D1F2&style=for-the-badge" alt="Profile Views" />
 &nbsp;
