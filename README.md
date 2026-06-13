@@ -1,12 +1,12 @@
 <!-- ░░░░░░░░░░░░░░░░░░░░  ANIMATED NEON HEADER  ░░░░░░░░░░░░░░░░░░░░ -->
 <a href="https://www.linkedin.com/in/john-martinez-10aba346">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:0F0C29,50:302B63,100:24D1F2&text=John%20Martinez-Ponce&fontColor=ffffff&fontSize=46&fontAlignY=38&desc=Engineering%20Architect%20%E2%80%A2%20Distributed%20Systems%20%E2%80%A2%20AI-Native%20Builder&descAlignY=58&descSize=18&animation=fadeIn" alt="John Martinez-Ponce" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:0F0C29,50:302B63,100:24D1F2&text=John%20Martinez-Ponce&fontColor=ffffff&fontSize=46&fontAlignY=38&desc=Engineering%20Architect%20%E2%80%A2%20Distributed%20Systems%20%E2%80%A2%20AI-Assisted%20Development&descAlignY=58&descSize=18&animation=fadeIn" alt="John Martinez-Ponce" />
 </a>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░  ANIMATED TYPING SUBTITLE  ░░░░░░░░░░░░░░░░░░░░ -->
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=800&color=24D1F2&center=true&vCenter=true&width=720&lines=Engineering+Architect+%C2%B7+Senior+Software+Engineer;15%2B+years+building+mission-critical+systems;10%2B+years+%40+American+Express;Distributed+Systems+%C2%B7+Event-Driven+Architecture;Building+software+%E2%9C%A6+with+%E2%9C%A6+AI+every+day)](https://github.com/jmartinez5120)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=800&color=24D1F2&center=true&vCenter=true&width=720&lines=Engineering+Architect+%C2%B7+Senior+Software+Engineer;15%2B+years+building+large-scale+systems;10%2B+years+%40+American+Express;Distributed+systems+%26+event-driven+design;I+build+software+with+AI%2C+daily)](https://github.com/jmartinez5120)
 
 <img src="https://komarev.com/ghpvc/?username=jmartinez5120&label=Profile+Views&color=24D1F2&style=for-the-badge" alt="Profile Views" />
 &nbsp;
@@ -24,64 +24,49 @@
 ```ts
 const john = {
   role: "Engineering Architect · Senior Software Engineer · Technical Lead",
-  company: "American Express (10+ years)",
-  experience: "15+ years shipping enterprise-grade systems",
-  scale: "High-performance, mission-critical platforms",
-  architecture: ["Event-Driven", "CDC", "Distributed Systems"],
-  leads: "High-performance teams of 10+ engineers",
-  buildsWith: "AI-native workflows — agents, custom skills, local fine-tuning",
+  company: "American Express — 10+ years",
+  experience: "15+ years, mostly on identity & customer platforms",
+  nowWorkingOn: "Replacing a 1996 monolith with distributed services",
+  leads: "Two teams, 10+ engineers on the data layer",
+  withAI: "Daily — agents, custom skills, local model fine-tuning",
   education: "B.S. Computer Science — Polytechnic University of Puerto Rico",
 };
 ```
 
-> Software engineering leader who designs distributed systems, leads high-performance teams, and ships mission-critical platforms — and who builds software **_with_** AI as much as by hand.
+> I design distributed systems, lead engineering teams, and modernize the kind of legacy platforms that have been running since before some of my teammates were born — and I build software *with* AI as much as by hand.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:302B63,100:24D1F2&section=header" width="100%" />
 
 <!-- ░░░░░░░░░░░░░░░░░░░░  SOFTWARE ARCHITECTURE  ░░░░░░░░░░░░░░░░░░░░ -->
 ## 🏛️ Software Architecture
 
-> As an **Engineering Architect & solution architect**, I own systems end-to-end — from the technical roadmap and integration patterns down to the data model, failure modes, and the production runbook. My focus: replace aging monoliths with resilient, observable, security-first distributed systems, and bring teams of 10+ engineers along the way through clear standards and design reviews.
+> I own systems end-to-end — the roadmap, the data model, the failure modes, and the runbook the on-call team actually uses. Most of my work is taking platforms that have outgrown their original design and moving them, a piece at a time, onto something the team can operate without holding its breath.
 
-**What I do as an architect**
+**What that looks like day to day**
 
-- 🧭 **Technical strategy & roadmaps** — multi-year modernization programs, target-state architecture, and incremental migration plans that keep mission-critical platforms live during the cutover.
-- 🧱 **Distributed system design** — System-of-Record / read-side-cache topologies, data consistency, partitioning, and capacity planning for high-throughput workloads.
-- 🔌 **Integration & data flow** — event streaming, near real-time replication, and contract-driven APIs across teams and datastores.
-- 🛡️ **Security-first & operable by design** — passwordless / phishing-resistant identity, observability, SLAs, and incident response baked in before customer cutover.
-- 👥 **Architecture governance** — design reviews, engineering standards, reference patterns, and mentoring engineers across multiple teams.
+- 🧭 Planning multi-year migrations that have to ship in slices, because the old system can't go down while the new one comes up.
+- 🧱 Designing how data is split between write and read stores, and deciding what to do when one side is briefly out of sync with the other.
+- 🔌 Wiring services together with Kafka and replication instead of brittle point-to-point calls.
+- 🛡️ Getting auth, logging, and on-call ready *before* cutover — not after the first incident.
+- 👥 Running design reviews and setting the conventions other engineers build against.
 
-**🧩 Architecture Patterns I've worked with**
+**Patterns I've actually used in production** — not a checklist; each one solved a specific problem:
 
-| Pattern | Where / How I've applied it |
+| Pattern | The problem it solved |
 | --- | --- |
-| **CQRS** (Command Query Responsibility Segregation) | PostgreSQL System of Record for writes + MongoDB read-side cache for high-volume reads |
-| **Event-Driven Architecture** | Asynchronous, decoupled services communicating over Apache Kafka |
-| **Change Data Capture (CDC)** | Near real-time SOR → cache replication with Debezium + Kafka Connect |
-| **Strangler Fig / Legacy Modernization** | Incrementally replaced a 1996 monolithic Oracle stored-proc SSO platform with zero-downtime cutover |
-| **Microservices** | Independently deployable Spring Boot services with bounded responsibilities |
-| **Reactive Systems** | Non-blocking, back-pressure-aware services for concurrent, low-latency workloads |
-| **API Gateway & OAuth / SSO** | Centralized auth, token issuance, and passwordless identity (Passkeys, Selfie, Tap Card to Login) |
-| **Materialized View / Cache-Aside** | Purpose-built read models sized for read-heavy access patterns |
-| **Eventual Consistency** | Tunable consistency between write and read sides via streamed replication |
-| **Pub/Sub & Stream Processing** | Topic-based fan-out and downstream data propagation across the enterprise |
-
-<div>
-  <img src="https://img.shields.io/badge/CQRS-512BD4?style=for-the-badge&logo=buffer&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Event_Driven-FF6600?style=for-the-badge&logo=lightning&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Change_Data_Capture-FF3E00?style=for-the-badge&logo=redhat&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Microservices-2496ED?style=for-the-badge&logo=icinga&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Reactive_Systems-DB008B?style=for-the-badge&logo=reactivex&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Distributed_Systems-302B63?style=for-the-badge&logo=apachespark&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Legacy_Modernization-1B5E20?style=for-the-badge&logo=apacheairflow&logoColor=white"/>
-</div>
+| **CQRS** | Reads and writes had very different shapes and volumes, so I split them: PostgreSQL as the source of truth for writes, MongoDB as a read model for high-volume lookups. |
+| **Change Data Capture (CDC)** | The read model had to stay current without dual-writes, so changes stream from Postgres via Debezium + Kafka Connect. |
+| **Event-Driven Architecture** | Teams kept blocking on each other's services; moving to Kafka let them react to events instead of calling synchronously. |
+| **Strangler Fig (Legacy Modernization)** | A 1996 Oracle stored-proc SSO system couldn't be rewritten in one shot, so we replaced it route by route with no downtime. |
+| **Microservices** | One deploy shouldn't gate every team, so responsibilities are split into independently shippable Spring Boot services. |
+| **Reactive (non-blocking) services** | Under acquisition-flow traffic, thread-per-request fell over; non-blocking I/O kept latency flat under load. |
 
 <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:24D1F2,100:302B63&section=header" width="100%" />
 
 <!-- ░░░░░░░░░░░░░░░░░░░░  AI-ASSISTED DEVELOPMENT  ░░░░░░░░░░░░░░░░░░░░ -->
 ## 🤖 AI-Assisted Development
 
-> I don't just *use* AI — I engineer around it: agentic workflows, custom subagents, repo-aware context, agent tracing, and locally fine-tuned models on my own hardware.
+> AI is part of how I actually work now, not a side experiment. Here's what that means in practice:
 
 <table>
 <tr>
@@ -138,7 +123,7 @@ Java/Spring services and data integrations powering unified customer views acros
 <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:302B63,100:24D1F2&section=header" width="100%" />
 
 <!-- ░░░░░░░░░░░░░░░░░░░░  TECH STACK  ░░░░░░░░░░░░░░░░░░░░ -->
-## 🛠️ Tech Arsenal
+## 🛠️ Tools I Work With
 
 **Languages & Frameworks**
 
