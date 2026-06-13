@@ -38,6 +38,46 @@ const john = {
 
 <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:302B63,100:24D1F2&section=header" width="100%" />
 
+<!-- ░░░░░░░░░░░░░░░░░░░░  SOFTWARE ARCHITECTURE  ░░░░░░░░░░░░░░░░░░░░ -->
+## 🏛️ Software Architecture
+
+> As an **Engineering Architect & solution architect**, I own systems end-to-end — from the technical roadmap and integration patterns down to the data model, failure modes, and the production runbook. My focus: replace aging monoliths with resilient, observable, security-first distributed systems, and bring teams of 10+ engineers along the way through clear standards and design reviews.
+
+**What I do as an architect**
+
+- 🧭 **Technical strategy & roadmaps** — multi-year modernization programs, target-state architecture, and incremental migration plans that keep mission-critical platforms live during the cutover.
+- 🧱 **Distributed system design** — System-of-Record / read-side-cache topologies, data consistency, partitioning, and capacity planning for high-throughput workloads.
+- 🔌 **Integration & data flow** — event streaming, near real-time replication, and contract-driven APIs across teams and datastores.
+- 🛡️ **Security-first & operable by design** — passwordless / phishing-resistant identity, observability, SLAs, and incident response baked in before customer cutover.
+- 👥 **Architecture governance** — design reviews, engineering standards, reference patterns, and mentoring engineers across multiple teams.
+
+**🧩 Architecture Patterns I've worked with**
+
+| Pattern | Where / How I've applied it |
+| --- | --- |
+| **CQRS** (Command Query Responsibility Segregation) | PostgreSQL System of Record for writes + Cassandra read-side cache for high-volume reads |
+| **Event-Driven Architecture** | Asynchronous, decoupled services communicating over Apache Kafka |
+| **Change Data Capture (CDC)** | Near real-time SOR → cache replication with Debezium + Kafka Connect |
+| **Strangler Fig / Legacy Modernization** | Incrementally replaced a 1996 monolithic Oracle stored-proc SSO platform with zero-downtime cutover |
+| **Microservices** | Independently deployable Spring Boot services with bounded responsibilities |
+| **Reactive Systems** | Non-blocking, back-pressure-aware services for concurrent, low-latency workloads |
+| **API Gateway & OAuth / SSO** | Centralized auth, token issuance, and passwordless identity (Passkeys, Selfie, Tap Card to Login) |
+| **Materialized View / Cache-Aside** | Purpose-built read models sized for read-heavy access patterns |
+| **Eventual Consistency** | Tunable consistency between write and read sides via streamed replication |
+| **Pub/Sub & Stream Processing** | Topic-based fan-out and downstream data propagation across the enterprise |
+
+<div>
+  <img src="https://img.shields.io/badge/CQRS-512BD4?style=for-the-badge&logo=buffer&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Event_Driven-FF6600?style=for-the-badge&logo=lightning&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Change_Data_Capture-FF3E00?style=for-the-badge&logo=redhat&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Microservices-2496ED?style=for-the-badge&logo=icinga&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Reactive_Systems-DB008B?style=for-the-badge&logo=reactivex&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Distributed_Systems-302B63?style=for-the-badge&logo=apachespark&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Legacy_Modernization-1B5E20?style=for-the-badge&logo=apacheairflow&logoColor=white"/>
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:24D1F2,100:302B63&section=header" width="100%" />
+
 <!-- ░░░░░░░░░░░░░░░░░░░░  AI-ASSISTED DEVELOPMENT  ░░░░░░░░░░░░░░░░░░░░ -->
 ## 🤖 AI-Assisted Development
 
@@ -108,12 +148,11 @@ Java/Spring services and data integrations powering unified customer views acros
 
 [![Skills](https://skillicons.dev/icons?i=postgres,cassandra,mongodb,elasticsearch,kafka,redis&theme=dark)](https://skillicons.dev)
 
-**Architecture & Security**
+**Identity & Security**
 
-<img src="https://img.shields.io/badge/Event_Driven-FF6600?style=for-the-badge&logo=lightning&logoColor=white"/>
-<img src="https://img.shields.io/badge/Change_Data_Capture-FF3E00?style=for-the-badge&logo=redhat&logoColor=white"/>
 <img src="https://img.shields.io/badge/Passkeys_·_Passwordless-0F9D58?style=for-the-badge&logo=fidoalliance&logoColor=white"/>
 <img src="https://img.shields.io/badge/OAuth_·_SSO-EB5424?style=for-the-badge&logo=auth0&logoColor=white"/>
+<img src="https://img.shields.io/badge/IAM-DD0031?style=for-the-badge&logo=keycloak&logoColor=white"/>
 
 **DevOps & Tooling**
 
