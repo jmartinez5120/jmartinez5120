@@ -78,8 +78,8 @@ CLI in bypass-permissions mode, multi-repo workflows, and **custom subagents** (
 **🟢 ChatGPT Codex**
 Offloads parallel tasks to a cloud sandbox while I keep building — complements Claude Code, doesn't replace it.
 
-**🛰️ OpenClaw / NVIDIA NemoClaw**
-Always-on agents monitoring self-hosted services, firing alerts on failure, and running ops across my **K3s** cluster.
+**🛰️ Hermes** — my homelab agent
+An always-on agent (the messenger) monitoring self-hosted services, firing alerts on failure, and running ops across my **K3s** cluster.
 
 </td>
 <td width="50%" valign="top">
