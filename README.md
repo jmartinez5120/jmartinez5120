@@ -172,6 +172,8 @@ Java/Spring services and data integrations powering unified customer views acros
 ## 🎯 Mission Log
 
 ```diff
++ 2026  Continue the AI journey — automate workloads with agents (Hermes)   [ IN_PROGRESS ]
++ 2026  Fine-tune my own AI models for task-specific work                   [ IN_PROGRESS ]
 + 2025  Build production AI agents & automate apps with agentic workflows   [ DONE ]
 @ 2024  Machine Learning · Deep Learning · Neural Networks                  [ CONCEPTS_DONE ]
 + 2023  Modernize high-performing apps to reactive programming              [ DONE ]
