@@ -182,6 +182,17 @@ Java/Spring services and data integrations powering unified customer views acros
 + 2021  Learn React                                                         [ DONE ]
 ```
 
+<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:302B63,100:24D1F2&section=header" width="100%" />
+
+<!-- ░░░░░░░░░░░░░░░░░░░░  POP CULTURE & EASTER EGGS  ░░░░░░░░░░░░░░░░░░░░ -->
+## 🍿 Pop Culture & Easter Eggs
+
+I think systems are allowed to have a personality. I name services, environments, and migrations after the movies, music, and games I grew up on — my homelab agent is **Hermes**, the messenger — and I'll tuck the occasional easter egg into an app: a hidden Konami code, a themed loading message, a codename only the team is in on.
+
+It isn't just for laughs. A name people *remember* sticks in design reviews, gives the team a shared vocabulary, and makes a two-year migration feel less like a slog. Good architecture should be fun to build, not just correct — and a little pop-culture nod keeps everyone reading the code instead of skimming it.
+
+<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:24D1F2,100:302B63&section=header" width="100%" />
+
 ⚡ **Off the keyboard:** Husband & Father 👨‍👩‍👧‍👦 · Drums 🥁 · Landscape Photography 📷 · Golf ⛳ & Tennis 🎾 · Woodworking 🪵 · Active in the markets 📈 (NYSE)
 
 <!-- ░░░░░░░░░░░░░░░░░░░░  FOOTER WAVE  ░░░░░░░░░░░░░░░░░░░░ -->
