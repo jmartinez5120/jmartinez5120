@@ -104,6 +104,22 @@ Own an **NVIDIA DGX Spark** (Blackwell AI server) for local training & fine-tuni
 
 <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:24D1F2,100:302B63&section=header" width="100%" />
 
+<!-- ░░░░░░░░░░░░░░░░░░░░  METHODOLOGY  ░░░░░░░░░░░░░░░░░░░░ -->
+## 🧭 How I Work With AI — Research → Design → Architect → Execute
+
+> An agent starts every session with no memory of the last one, so I keep the thinking in writing. Each piece of work moves through four stages, and every stage leaves behind a markdown document the next stage — and the next engineer — can pick up. Nothing important lives only in a chat window.
+
+| Stage | What I do | What gets written down |
+| --- | --- | --- |
+| **1 · Research** | Dig into the problem, prior art, and constraints *with* the agent before any code is written. | **PRR** — a *Product Requirements & Research* brief: the problem, what I found, and what "done" actually means. |
+| **2 · Design** | Turn the PRR into an approach and weigh the trade-offs out loud. | A design doc + **ADRs** (Architecture Decision Records) that capture *why*, not just *what*. |
+| **3 · Architect** | Define the structure, data model, and interfaces before implementation starts. | Repo **context files** (`CLAUDE.md` / `AGENTS.md`), diagrams, and a task breakdown the agent can execute. |
+| **4 · Execute** | Agents implement against that context; I review, correct, and iterate in tight loops. | Small, reviewable PRs plus updated docs and runbooks. |
+
+**The throughline is context.** The agent only knows what's on the page — so architecture, conventions, and decisions live in markdown the repo carries with it (`CLAUDE.md` / `AGENTS.md`, ADRs, PRRs, runbooks) instead of being re-explained every session. Writing it down once makes both the agent *and* the next engineer faster. I treat the docs as the real source of truth and the code as its output.
+
+<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:302B63,100:24D1F2&section=header" width="100%" />
+
 <!-- ░░░░░░░░░░░░░░░░░░░░  BUSINESS & ENTERPRISE  ░░░░░░░░░░░░░░░░░░░░ -->
 ## 🏢 Business & Enterprise Experience
 
