@@ -172,7 +172,7 @@ Java/Spring services and data integrations powering unified customer views acros
 ## 🎯 Mission Log
 
 ```diff
-+ 2025  Build production AI agents & automate apps with agentic workflows   [ IN_PROGRESS ]
++ 2025  Build production AI agents & automate apps with agentic workflows   [ DONE ]
 @ 2024  Machine Learning · Deep Learning · Neural Networks                  [ CONCEPTS_DONE ]
 + 2023  Modernize high-performing apps to reactive programming              [ DONE ]
 + 2022  Grow in React & JS + practice Machine Learning                      [ DONE ]
