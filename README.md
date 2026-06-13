@@ -55,7 +55,7 @@ const john = {
 
 | Pattern | Where / How I've applied it |
 | --- | --- |
-| **CQRS** (Command Query Responsibility Segregation) | PostgreSQL System of Record for writes + Cassandra read-side cache for high-volume reads |
+| **CQRS** (Command Query Responsibility Segregation) | PostgreSQL System of Record for writes + MongoDB read-side cache for high-volume reads |
 | **Event-Driven Architecture** | Asynchronous, decoupled services communicating over Apache Kafka |
 | **Change Data Capture (CDC)** | Near real-time SOR → cache replication with Debezium + Kafka Connect |
 | **Strangler Fig / Legacy Modernization** | Incrementally replaced a 1996 monolithic Oracle stored-proc SSO platform with zero-downtime cutover |
