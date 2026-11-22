@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John Martinez-Ponce · Engineering Architect</title>
+  <meta name="description" content="John Martinez-Ponce: Engineering Architect, distributed systems, and AI-assisted development.">
+  <meta name="theme-color" content="#0b0d10">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Arm the loading intro before first paint (skipped for reduced-motion users). -->
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      history.scrollRestoration = "manual";
+    }
+  </script>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-hud">
+    <span>› <span id="intro-status">booting construct</span></span>
+    <span class="intro-skip">press any key or click to skip</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <a class="brand" href="#top" aria-label="Home">
+    <svg class="orbit" viewBox="0 0 120 120" aria-hidden="true">
+      <circle class="ring" cx="60" cy="60" r="50"/>
+      <circle class="dot" cx="60" cy="10" r="11"/>
+    </svg>
+    JMP
+  </a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#beyond">Beyond</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="orbit-mark" aria-hidden="true"></div>
+  <h1>John Martinez-Ponce</h1>
+  <p class="tagline">Engineering Architect · Distributed Systems · AI-Assisted Development</p>
+  <p class="status">St. Johns, FL · EN / ES · <span>●</span> building with agents</p>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</header>
+
+<main>
+
+  <section id="about">
+    <p class="eyebrow">// whoami</p>
+    <h2>About</h2>
+    <p class="lede">
+      I design distributed systems, lead engineering teams, and modernize the kind of legacy platforms
+      that have been running since before some of my teammates were born. I build software
+      <em>with</em> AI as much as by hand.
+    </p>
+<pre class="terminal"><span class="p">const</span> john = {
+  <span class="k">role</span>:         <span class="s">"Engineering Architect · Senior Software Engineer · Technical Lead"</span>,
+  <span class="k">company</span>:      <span class="s">"American Express (10+ years)"</span>,
+  <span class="k">experience</span>:   <span class="s">"15+ years, mostly on identity &amp; customer platforms"</span>,
+  <span class="k">nowWorkingOn</span>: <span class="s">"Replacing a 1996 monolith with distributed services"</span>,
+  <span class="k">leads</span>:        <span class="s">"Two teams, 10+ engineers on the data layer"</span>,
+  <span class="k">withAI</span>:       <span class="s">"Daily: agents, custom skills, local model fine-tuning"</span>,
+  <span class="k">education</span>:    <span class="s">"B.S. Computer Science, Polytechnic University of Puerto Rico"</span>,
+};</pre>
+  </section>
+
+  <section id="work">
+    <p class="eyebrow">// architecture</p>
+    <h2>Software Architecture</h2>
+    <p class="lede muted">
+      I own systems end to end: the roadmap, the data model, the failure modes, and the runbook the
+      on-call team actually uses. Most of my work is moving platforms that have outgrown their original
+      design onto something the team can run without holding its breath, one piece at a time.
+    </p>
+    <table class="patterns">
+      <tr><td>CQRS</td><td>Reads and writes had very different shapes and volumes. PostgreSQL is the source of truth for writes; MongoDB serves high-volume lookups.</td></tr>
+      <tr><td>Change Data Capture</td><td>The read model had to stay current without dual-writes, so changes stream from Postgres via Debezium + Kafka Connect.</td></tr>
+      <tr><td>Event-Driven Architecture</td><td>Teams kept blocking on each other's services. Kafka let them react to events instead of calling synchronously.</td></tr>
+      <tr><td>Strangler Fig</td><td>A 1996 Oracle stored-proc SSO system couldn't be rewritten in one shot, so we replaced it route by route with no downtime.</td></tr>
+      <tr><td>Microservices</td><td>One deploy shouldn't gate every team, so responsibilities are split into independently shippable Spring Boot services.</td></tr>
+      <tr><td>Reactive services</td><td>Under acquisition-flow traffic, thread-per-request fell over. Non-blocking I/O kept latency flat under load.</td></tr>
+    </table>
+
+    <p class="eyebrow" style="margin-top:72px">// method</p>
+    <h2>How I Work With AI</h2>
+    <p class="lede muted">
+      An agent starts every session with no memory of the last one, so I keep the thinking in writing.
+      Every stage leaves behind a document the next stage, and the next engineer, can pick up.
+    </p>
+    <div class="steps">
+      <div class="card"><h3>Research</h3><p>Dig into the problem, prior art, and constraints with the agent before any code.</p><p class="out">→ PRR brief</p></div>
+      <div class="card"><h3>Design</h3><p>Turn the research into an approach and weigh the trade-offs out loud.</p><p class="out">→ Design doc + ADRs</p></div>
+      <div class="card"><h3>Architect</h3><p>Define structure, data model, and interfaces before implementation.</p><p class="out">→ <code>CLAUDE.md</code> / <code>AGENTS.md</code></p></div>
+      <div class="card"><h3>Execute</h3><p>Agents implement against that context; I review, correct, and iterate.</p><p class="out">→ Small PRs + runbooks</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow">// personal projects</p>
+    <h2>Projects &amp; Lab</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Agent · Homelab</span>
+        <h3>Hermes</h3>
+        <p>An always-on agent (the messenger) that monitors self-hosted services, fires alerts on failure, and runs ops across my K3s cluster.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Local AI</span>
+        <h3>DGX Spark Fine-Tuning</h3>
+        <p>Local training and fine-tuning on an NVIDIA DGX Spark: QLoRA / Unsloth workflows for task-specific models when cloud APIs aren't the right fit.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Tooling</span>
+        <h3>Custom Skills &amp; Subagents</h3>
+        <p>Reusable skills for CDC / Debezium scaffolding, TimescaleDB hypertables, and Spring Boot service generation, plus subagents for review, API testing, and k8s ops.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Observability</span>
+        <h3>Agent Tracing</h3>
+        <p>Langfuse and Helicone wired into my agent workflows so I can see what each run actually did and what it cost.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="eyebrow">// career</p>
+    <h2>Experience</h2>
+    <ol class="timeline">
+      <li>
+        <span class="when">Aug 2023 – Present · American Express</span>
+        <h3>Senior Engineer I · Identity &amp; Authentication Modernization</h3>
+        <p>Technical lead and solution architect modernizing the americanexpress.com SSO platform, originally a 1996 Oracle stored-procedure monolith. Re-architected around a PostgreSQL system of record with a Cassandra read cache replicated via Debezium + Kafka Connect. Led a 10-engineer data-layer team plus an authentication team that shipped Passkeys, Selfie, and Tap Card to Login.</p>
+      </li>
+      <li>
+        <span class="when">Jun 2022 – Aug 2023 · American Express</span>
+        <h3>Senior Engineer II · Customer Demographic Search Engine</h3>
+        <p>Engineering lead for a Spring + Elasticsearch engine powering demographic matching and risk scoring at the moment of application, tuned for sub-second response.</p>
+      </li>
+      <li>
+        <span class="when">Dec 2015 – Jun 2022 · American Express</span>
+        <h3>Engineer · Customer 360 Products</h3>
+        <p>Java/Spring services and data integrations powering unified customer views across the enterprise.</p>
+      </li>
+      <li>
+        <span class="when">Earlier</span>
+        <h3>ETL Developer · Project Manager / Team Lead</h3>
+        <p>Informatica ETL at Insight Global (for Amex), and BI / data-warehouse delivery (Informatica PowerCenter, IBM Cognos) for EVERTEC and Claro via Softtek.</p>
+      </li>
+    </ol>
+
+    <p class="eyebrow" style="margin-top:56px">// toolbox</p>
+    <h2>Tools</h2>
+    <div class="stack-group"><h3>Languages &amp; Frameworks</h3><div class="chips"><span>Java</span><span>Spring Boot</span><span>Python</span><span>JavaScript</span><span>Bash</span><span>Maven</span></div></div>
+    <div class="stack-group"><h3>Data &amp; Messaging</h3><div class="chips"><span>PostgreSQL</span><span>Cassandra</span><span>MongoDB</span><span>Elasticsearch</span><span>Kafka</span><span>Debezium</span><span>Redis</span></div></div>
+    <div class="stack-group"><h3>Identity &amp; Security</h3><div class="chips"><span>Passkeys</span><span>OAuth / SSO</span><span>IAM</span></div></div>
+    <div class="stack-group"><h3>DevOps &amp; AI</h3><div class="chips"><span>Kubernetes / K3s</span><span>Docker</span><span>GitHub Actions</span><span>Grafana</span><span>Claude Code</span><span>Codex</span><span>QLoRA · Unsloth</span></div></div>
+  </section>
+
+  <section id="beyond">
+    <p class="eyebrow">// mission log</p>
+    <h2>Goals</h2>
+    <ul class="log">
+      <li><span class="yr">2026</span><span>Automate workloads with agents (Hermes)</span><span class="st live">IN PROGRESS</span></li>
+      <li><span class="yr">2026</span><span>Fine-tune my own models for task-specific work</span><span class="st live">IN PROGRESS</span></li>
+      <li><span class="yr">2025</span><span>Build production AI agents &amp; agentic workflows</span><span class="st done">DONE</span></li>
+      <li><span class="yr">2024</span><span>Machine learning · deep learning · neural networks</span><span class="st done">CONCEPTS DONE</span></li>
+      <li><span class="yr">2023</span><span>Modernize high-performing apps to reactive programming</span><span class="st done">DONE</span></li>
+      <li><span class="yr">2022</span><span>Grow in React &amp; JS, practice machine learning</span><span class="st done">DONE</span></li>
+      <li><span class="yr">2021</span><span>Learn React</span><span class="st done">DONE</span></li>
+    </ul>
+
+    <p class="eyebrow" style="margin-top:72px">// off the keyboard</p>
+    <h2>Beyond Code</h2>
+    <p class="lede muted">
+      I think systems are allowed to have a personality. I name services and migrations after the movies,
+      music, and games I grew up on, and I'll tuck the occasional easter egg into an app.
+    </p>
+    <div class="hobbies">
+      <span>Husband &amp; Father</span><span>Drums</span><span>Landscape Photography</span>
+      <span>Golf &amp; Tennis</span><span>Woodworking</span><span>The Markets</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="orbit" viewBox="0 0 120 120" aria-hidden="true">
+    <circle class="ring" cx="60" cy="60" r="50"/>
+    <circle class="dot" cx="60" cy="10" r="8"/>
+  </svg>
+  <div class="links">
+    <a href="https://github.com/jmartinez5120">GitHub</a>
+    <a href="https://www.linkedin.com/in/john-martinez-10aba346">LinkedIn</a>
+  </div>
+  <small>© <span id="year"></span> John Martinez-Ponce</small>
+</footer>
+
+<script src="main.js"></script>
+<script src="intro.js"></script>
+</body>
+</html>
