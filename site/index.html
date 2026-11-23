@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>John Martinez-Ponce · Engineering Architect</title>
-  <meta name="description" content="John Martinez-Ponce: Engineering Architect, distributed systems, and AI-assisted development.">
+  <title>John R. Martinez · Software Architect</title>
+  <meta name="description" content="John R. Martinez: Software Architect, enterprise systems, and AI ecosystem development.">
   <meta name="theme-color" content="#0b0d10">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -31,11 +31,12 @@
       <circle class="ring" cx="60" cy="60" r="50"/>
       <circle class="dot" cx="60" cy="10" r="11"/>
     </svg>
-    JMP
+    Liminal Orbit
   </a>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
+    <li><a href="#work">Architecture</a></li>
+    <li><a href="#method">Method</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#beyond">Beyond</a></li>
@@ -44,9 +45,9 @@
 
 <header class="hero" id="top">
   <div class="orbit-mark" aria-hidden="true"></div>
-  <h1>John Martinez-Ponce</h1>
-  <p class="tagline">Engineering Architect · Distributed Systems · AI-Assisted Development</p>
-  <p class="status">St. Johns, FL · EN / ES · <span>●</span> building with agents</p>
+  <h1>John R. Martinez</h1>
+  <p class="tagline">Software Architect · Enterprise Systems · AI Ecosystem Development</p>
+  <p class="status">Florida, USA · EN / ES · <span>●</span> between what is and what could be</p>
   <div class="scroll-cue" aria-hidden="true"></div>
 </header>
 
@@ -56,24 +57,33 @@
     <p class="eyebrow">// whoami</p>
     <h2>About</h2>
     <p class="lede">
-      I design distributed systems, lead engineering teams, and modernize the kind of legacy platforms
-      that have been running since before some of my teammates were born. I build software
+      I design distributed systems and lead engineering teams. By day that means modernizing
+      identity platforms at American Express that have been running since before some of my teammates
+      were born. After hours I work on my own projects: <strong>TapeRoom</strong>, an end-to-end encrypted
+      chat app where tickers turn into live quote cards, and <strong>Quartermaster</strong>, a research tool
+      I built for my own investing that maps supply chains to show who gets hit when a company stumbles.
+      I build software
       <em>with</em> AI as much as by hand.
     </p>
-<pre class="terminal"><span class="p">const</span> john = {
-  <span class="k">role</span>:         <span class="s">"Engineering Architect · Senior Software Engineer · Technical Lead"</span>,
-  <span class="k">company</span>:      <span class="s">"American Express (10+ years)"</span>,
-  <span class="k">experience</span>:   <span class="s">"15+ years, mostly on identity &amp; customer platforms"</span>,
-  <span class="k">nowWorkingOn</span>: <span class="s">"Replacing a 1996 monolith with distributed services"</span>,
-  <span class="k">leads</span>:        <span class="s">"Two teams, 10+ engineers on the data layer"</span>,
-  <span class="k">withAI</span>:       <span class="s">"Daily: agents, custom skills, local model fine-tuning"</span>,
-  <span class="k">education</span>:    <span class="s">"B.S. Computer Science, Polytechnic University of Puerto Rico"</span>,
-};</pre>
+<pre class="terminal"><span class="t">Engineer</span> john = <span class="t">Engineer</span>.<span class="k">builder</span>()
+    .<span class="k">role</span>(<span class="s">"Software Architect / Senior Software Engineer"</span>)
+    .<span class="k">dayJob</span>(<span class="s">"American Express (10+ years): identity &amp; SSO modernization"</span>)
+    .<span class="k">experience</span>(<span class="s">"15+ years across enterprise platforms and my own projects"</span>)
+    .<span class="k">builds</span>(<span class="s">"TapeRoom"</span>, <span class="s">"Quartermaster"</span>, <span class="s">"Hermes"</span>)
+    .<span class="k">leads</span>(<span class="s">"Two teams, 10+ engineers on the data layer"</span>)
+    .<span class="k">withAI</span>(<span class="s">"Daily: agents, custom skills, local model fine-tuning"</span>)
+    .<span class="k">education</span>(<span class="s">"B.S. Computer Science, Polytechnic University of Puerto Rico"</span>)
+    .<span class="k">build</span>();</pre>
   </section>
 
   <section id="work">
     <p class="eyebrow">// architecture</p>
     <h2>Software Architecture</h2>
+    <blockquote class="quote">
+      <p>&ldquo;As AI makes code abundant, architecture becomes the discipline that matters most.
+      Generating software is no longer the hard part; designing systems that last is.&rdquo;</p>
+      <cite>John R. Martinez</cite>
+    </blockquote>
     <p class="lede muted">
       I own systems end to end: the roadmap, the data model, the failure modes, and the runbook the
       on-call team actually uses. Most of my work is moving platforms that have outgrown their original
@@ -87,8 +97,10 @@
       <tr><td>Microservices</td><td>One deploy shouldn't gate every team, so responsibilities are split into independently shippable Spring Boot services.</td></tr>
       <tr><td>Reactive services</td><td>Under acquisition-flow traffic, thread-per-request fell over. Non-blocking I/O kept latency flat under load.</td></tr>
     </table>
+  </section>
 
-    <p class="eyebrow" style="margin-top:72px">// method</p>
+  <section id="method">
+    <p class="eyebrow">// method</p>
     <h2>How I Work With AI</h2>
     <p class="lede muted">
       An agent starts every session with no memory of the last one, so I keep the thinking in writing.
@@ -130,6 +142,8 @@
   </section>
 
   <section id="experience">
+   <div class="split">
+   <div>
     <p class="eyebrow">// career</p>
     <h2>Experience</h2>
     <ol class="timeline">
@@ -154,13 +168,17 @@
         <p>Informatica ETL at Insight Global (for Amex), and BI / data-warehouse delivery (Informatica PowerCenter, IBM Cognos) for EVERTEC and Claro via Softtek.</p>
       </li>
     </ol>
+   </div>
 
-    <p class="eyebrow" style="margin-top:56px">// toolbox</p>
+   <div>
+    <p class="eyebrow">// toolbox</p>
     <h2>Tools</h2>
     <div class="stack-group"><h3>Languages &amp; Frameworks</h3><div class="chips"><span>Java</span><span>Spring Boot</span><span>Python</span><span>JavaScript</span><span>Bash</span><span>Maven</span></div></div>
     <div class="stack-group"><h3>Data &amp; Messaging</h3><div class="chips"><span>PostgreSQL</span><span>Cassandra</span><span>MongoDB</span><span>Elasticsearch</span><span>Kafka</span><span>Debezium</span><span>Redis</span></div></div>
     <div class="stack-group"><h3>Identity &amp; Security</h3><div class="chips"><span>Passkeys</span><span>OAuth / SSO</span><span>IAM</span></div></div>
     <div class="stack-group"><h3>DevOps &amp; AI</h3><div class="chips"><span>Kubernetes / K3s</span><span>Docker</span><span>GitHub Actions</span><span>Grafana</span><span>Claude Code</span><span>Codex</span><span>QLoRA · Unsloth</span></div></div>
+   </div>
+   </div>
   </section>
 
   <section id="beyond">
@@ -199,10 +217,12 @@
     <a href="https://github.com/jmartinez5120">GitHub</a>
     <a href="https://www.linkedin.com/in/john-martinez-10aba346">LinkedIn</a>
   </div>
-  <small>© <span id="year"></span> John Martinez-Ponce</small>
+  <small>© <span id="year"></span> John R. Martinez</small>
 </footer>
 
 <script src="main.js"></script>
+<script src="cells.js"></script>
 <script src="intro.js"></script>
+<script src="dissolve.js"></script>
 </body>
 </html>

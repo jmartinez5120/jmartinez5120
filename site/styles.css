@@ -78,6 +78,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--cyan); }
   letter-spacing: .3em;
   text-transform: uppercase;
   font-size: .78rem;
+  white-space: nowrap;
 }
 .brand .orbit { width: 26px; height: 26px; }
 .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
@@ -128,6 +129,13 @@ main section {
   margin: 0 auto;
   padding: 96px clamp(20px, 5vw, 48px);
   border-top: 1px solid var(--line);
+  /* Each section is its own screen (they're built one at a time): at least a viewport
+     tall, with its content centered vertically. Taller sections just scroll. */
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .eyebrow {
   font-family: var(--mono);
@@ -145,6 +153,9 @@ h2 {
 }
 h3 { font-weight: 500; font-size: 1.05rem; margin: 0 0 6px; color: #e6f6fa; }
 .lede { font-size: 1.15rem; max-width: 70ch; }
+/* Sections are flex columns (vertical centering), so margins no longer collapse:
+   drop the paragraph's top margin to keep the heading → lede spacing at 32px. */
+main section > .lede { margin-top: 0; }
 .muted { color: var(--muted); }
 
 .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
@@ -168,10 +179,7 @@ h3 { font-weight: 500; font-size: 1.05rem; margin: 0 0 6px; color: #e6f6fa; }
 
 /* whoami block */
 .terminal {
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 22px 26px;
+  padding: 0;
   font-family: var(--mono);
   font-size: .85rem;
   overflow-x: auto;
@@ -180,6 +188,7 @@ h3 { font-weight: 500; font-size: 1.05rem; margin: 0 0 6px; color: #e6f6fa; }
 .terminal .k { color: var(--cyan); }
 .terminal .s { color: #a9c7cf; }
 .terminal .p { color: var(--muted); }
+.terminal .t { color: var(--amber); }
 
 /* Patterns table */
 .patterns { width: 100%; border-collapse: collapse; margin-top: 8px; }
@@ -258,6 +267,12 @@ footer .orbit { width: 48px; height: 48px; margin: 0 auto 24px; }
 footer .links { display: flex; justify-content: center; gap: 28px; letter-spacing: .2em; text-transform: uppercase; font-size: .75rem; }
 footer small { display: block; margin-top: 28px; color: var(--muted); letter-spacing: .1em; }
 
+/* Six nav links: tighten them on mid-size screens so they don't collide with the logo. */
+@media (max-width: 1000px) {
+  .nav ul { gap: 16px; }
+  .nav ul a { font-size: .66rem; letter-spacing: .12em; }
+}
+@media (max-width: 780px) { .nav ul { display: none; } }
 @media (max-width: 720px) {
   .nav ul { display: none; }
   .patterns td:first-child { white-space: normal; }
@@ -266,7 +281,7 @@ footer small { display: block; margin-top: 28px; color: var(--muted); letter-spa
 }
 
 
-/* ---------- Loading intro (agents build the hero) ---------- */
+/* ---------- Loading intro (nanoparticles assemble the hero) ---------- */
 #intro { display: none; }
 html.intro { overflow: hidden; }
 html.intro #intro {
@@ -295,7 +310,7 @@ html.intro #intro {
 #intro-status { color: var(--cyan); white-space: pre; }
 @media (max-width: 600px) { .intro-skip { display: none; } }
 
-/* Logo dot stays dark while the agents build, then powers on: a flicker, a flare
+/* Logo dot stays dark while the particles assemble, then powers on: a flicker, a flare
    past full brightness, then it settles at its normal glow. */
 html.intro .orbit-mark::after { opacity: 0; }
 html.intro .orbit-mark.power-on::after { animation: dot-power-on .95s ease-out forwards; }
@@ -306,3 +321,24 @@ html.intro .orbit-mark.power-on::after { animation: dot-power-on .95s ease-out f
   50%  { opacity: 1;   box-shadow: 0 0 32px 8px var(--amber);     filter: brightness(1.7); }
   100% { opacity: 1;   box-shadow: 0 0 12px var(--amber);         filter: brightness(1); }
 }
+
+/* ---------- Section dissolve (each section built from particles; see dissolve.js) ---------- */
+.dissolve {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5; /* over the page, under the nav */
+}
+
+/* Career and toolbox side by side */
+.split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.split .timeline li:last-child { padding-bottom: 0; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+
+/* Pull quote (architecture) */
+.quote { margin: 0 0 36px; padding: 4px 0 4px 22px; border-left: 2px solid var(--cyan); max-width: 62ch; }
+.quote p { margin: 0; font-size: 1.35rem; font-weight: 300; line-height: 1.5; color: #e6eef0; }
+.quote cite { display: block; margin-top: 12px; font-family: var(--mono); font-style: normal; font-size: .75rem; letter-spacing: .12em; color: var(--amber); }
+.quote cite::before { content: "— "; }

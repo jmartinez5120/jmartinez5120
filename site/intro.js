@@ -1,15 +1,16 @@
 // Loading intro: the real (sharp) page sits underneath an opaque cover. A swarm of
-// pixel agents cuts the cover away cell by cell wherever there's content, so the
-// page is literally assembled in front of you. Then the cover fades out.
+// nanoparticles streams in and each one, as it docks, uncovers one cell wherever
+// there's content, so the page is literally assembled in front of you. Then the
+// logo dot powers on and the cover fades out.
 // Skippable with any key / click / scroll / tap.
 (() => {
   const root = document.documentElement;
   const overlay = document.getElementById("intro");
   if (!root.classList.contains("intro") || !overlay) return;
 
-  const CYAN = "#1fd1e0", AMBER = "#f5a524", BG = "#0b0d10", BODY = "#11151a";
-  const CELL = 2;
-  const FLY = 380, BUILD = 2200, HOLD = 520, EXIT = 360, FADE = 600;
+  const BG = "#0b0d10";
+  const DOT = 1; // particle size in flight (CSS px)
+  const SPAWN = 1900, FLIGHT = [400, 750], HOLD = 300, FADE = 600, POWER = 950;
 
   // The intro always lands on the top of the page: drop any #section from the URL
   // so the browser doesn't jump to it behind the cover.
@@ -45,6 +46,7 @@
       root.classList.remove("intro");
       overlay.remove();
       releaseScroll();
+      dispatchEvent(new Event("intro:done")); // the scroll dissolve starts listening now
     }, FADE);
   };
   SKIP.forEach((e) => addEventListener(e, end, { passive: true }));
@@ -52,127 +54,77 @@
   const W = innerWidth, H = innerHeight;
   const dpr = Math.min(devicePixelRatio || 1, 2);
 
-  // ---- 1. Map where the page has content (text glyphs + logo shapes) ----------
-  const sample = document.createElement("canvas");
-  sample.width = W; sample.height = H;
-  const sc = sample.getContext("2d", { willReadFrequently: true });
-  sc.fillStyle = sc.strokeStyle = "#fff";
-  sc.textBaseline = "middle";
-
-  const range = document.createRange();
-  const drawText = (scope) => {
-    const walk = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
-    for (let node; (node = walk.nextNode()); ) {
-      const cs = getComputedStyle(node.parentElement);
-      if (cs.visibility === "hidden" || cs.display === "none") continue;
-      sc.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
-      const upper = cs.textTransform === "uppercase";
-      const t = node.textContent;
-      for (let i = 0; i < t.length; i++) {
-        if (/\s/.test(t[i])) continue;
-        range.setStart(node, i); range.setEnd(node, i + 1);
-        const r = range.getBoundingClientRect();
-        if (!r.width || r.bottom < 0 || r.top > H) continue;
-        sc.fillText(upper ? t[i].toUpperCase() : t[i], r.left, r.top + r.height / 2);
-      }
-    }
-  };
-  document.querySelectorAll(".nav, .hero").forEach(drawText);
-
+  // ---- 1. Map where the page has content, in its real colors (see cells.js).
+  const { CELL } = CellMap;
   const mark = document.querySelector(".orbit-mark");
-  if (mark) {
-    const m = mark.getBoundingClientRect();
-    sc.lineWidth = 3;
-    sc.beginPath(); sc.arc(m.left + m.width / 2, m.top + m.height / 2, m.width / 2 - 0.5, 0, Math.PI * 2); sc.stroke();
-    sc.beginPath(); sc.arc(m.left + 61, m.top + 1, 7, 0, Math.PI * 2); sc.fill();
-  }
-  document.querySelectorAll(".nav .orbit, .scroll-cue").forEach((el) => {
-    const r = el.getBoundingClientRect();
-    sc.fillRect(r.left - 1, r.top - 1, r.width + 2, r.height + 2);
-  });
-
-  // Grid of cells that contain ink, dilated by one cell so anti-aliased edges are uncovered too.
-  const gw = Math.ceil(W / CELL), gh = Math.ceil(H / CELL);
-  const px = sc.getImageData(0, 0, W, H).data;
-  const ink = new Uint8Array(gw * gh);
-  for (let gy = 0; gy < gh; gy++)
-    for (let gx = 0; gx < gw; gx++) {
-      search: for (let dy = 0; dy < CELL; dy++)
-        for (let dx = 0; dx < CELL; dx++) {
-          const x = gx * CELL + dx, y = gy * CELL + dy;
-          if (x < W && y < H && px[(y * W + x) * 4 + 3] > 20) { ink[gy * gw + gx] = 1; break search; }
-        }
-    }
-  const cells = [];
-  for (let gy = 0; gy < gh; gy++)
-    for (let gx = 0; gx < gw; gx++) {
-      let hit = 0;
-      for (let dy = -1; dy <= 1 && !hit; dy++)
-        for (let dx = -1; dx <= 1 && !hit; dx++) {
-          const nx = gx + dx, ny = gy + dy;
-          hit = nx >= 0 && ny >= 0 && nx < gw && ny < gh && ink[ny * gw + nx];
-        }
-      if (hit) cells.push({ x: gx * CELL, y: gy * CELL });
-    }
+  const cells = CellMap.sample({ top: 0, scopes: [".nav", ".hero"], shapes: [CellMap.shapes.hero, CellMap.shapes.navOrbit] });
   if (!cells.length) return end();
 
-  // ---- 2. Split work: each agent owns a vertical band, scans it like a print head
-  const N = Math.max(6, Math.min(16, Math.round(W / 80)));
+  // ---- 2. Nanoparticles: one per cell. Each streams in along a curved path and,
+  // when it docks, uncovers its cell. Spawn order and entry pattern vary per load.
   const rnd = Math.random;
-  // Bands are cut at a random angle each load (vertical, horizontal, diagonal…).
-  const cut = rnd() * Math.PI;
-  const [cx0, cy0] = [Math.cos(cut), Math.sin(cut)];
-  cells.sort((a, b) => a.x * cx0 + a.y * cy0 - (b.x * cx0 + b.y * cy0));
-  const per = Math.ceil(cells.length / N);
-
-  // Each agent builds its band in its own random order, so the page fills in from all directions.
-  const ORDERS = [
-    (job) => { // sweep in from a random direction
-      const t = rnd() * Math.PI * 2, ux = Math.cos(t), uy = Math.sin(t);
-      return job.sort((a, b) => a.x * ux + a.y * uy - (b.x * ux + b.y * uy));
+  const ORDERS = {
+    sweep: () => { // assembles across the page from a random direction
+      const a = rnd() * Math.PI * 2, ux = Math.cos(a), uy = Math.sin(a);
+      return (c) => c.x * ux + c.y * uy;
     },
-    (job) => { // burst outward from a random point in the band
-      const p = job[(rnd() * job.length) | 0];
-      return job.sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y));
+    bloom: () => { // grows outward from a random point
+      const p = cells[(rnd() * cells.length) | 0];
+      return (c) => Math.hypot(c.x - p.x, c.y - p.y);
     },
-    (job) => { // close in on a random point from the band's edges
-      const p = job[(rnd() * job.length) | 0];
-      return job.sort((a, b) => Math.hypot(b.x - p.x, b.y - p.y) - Math.hypot(a.x - p.x, a.y - p.y));
+    converge: () => { // edges first, closing in on the center
+      const [mx, my] = [W / 2, H / 2];
+      return (c) => -Math.hypot(c.x - mx, c.y - my);
     },
-  ];
+    settle: () => () => rnd(), // dust settling everywhere at once
+  };
   // Off-screen point on an edge (0 top, 1 right, 2 bottom, 3 left), t ∈ [0,1] along it.
   const edgePoint = (edge, t) => {
-    const m = 30 + rnd() * 60;
+    const m = 20 + rnd() * 80;
     return edge === 0 ? [t * W, -m] : edge === 1 ? [W + m, t * H] : edge === 2 ? [t * W, H + m] : [-m, t * H];
   };
-  // Every load picks an arrival pattern (never the same one twice in a row), and
-  // every agent gets its own random entry point inside it.
+  // Where each particle comes from. Every load picks a pattern (never the same twice in a row).
   const PATTERNS = {
-    scatter: () => edgePoint((rnd() * 4) | 0, rnd()),                    // from everywhere at once
-    flank: ((e) => () => edgePoint(e, rnd()))((rnd() * 4) | 0),           // a wave from one side
-    pincer: ((e) => (i) => edgePoint(i % 2 ? e : e + 2, rnd()))((rnd() * 2) | 0), // two opposite sides
-    corner: ((c) => () => {                                               // pour out of one corner
-      const [cx, cy] = [c & 1 ? W : 0, c & 2 ? H : 0];
-      return [cx + (c & 1 ? 1 : -1) * (30 + rnd() * 140), cy + (c & 2 ? 1 : -1) * (30 + rnd() * 140)];
-    })((rnd() * 4) | 0),
+    scatter: () => () => edgePoint((rnd() * 4) | 0, rnd()),              // from every edge
+    flank: () => { const e = (rnd() * 4) | 0; return () => edgePoint(e, rnd()); }, // a tide from one side
+    pincer: () => { const e = (rnd() * 2) | 0; return () => edgePoint(rnd() < 0.5 ? e : e + 2, rnd()); },
+    corner: () => {                                                       // pouring out of one corner
+      const c = (rnd() * 4) | 0, [cx, cy] = [c & 1 ? W : 0, c & 2 ? H : 0];
+      return () => [cx + (c & 1 ? 1 : -1) * (20 + rnd() * 160), cy + (c & 2 ? 1 : -1) * (20 + rnd() * 160)];
+    },
+    haze: () => (c) => {                                                  // condensing out of thin air nearby
+      const a = rnd() * Math.PI * 2, d = 40 + rnd() * 220;
+      return [c.x + Math.cos(a) * d, c.y + Math.sin(a) * d];
+    },
   };
-  const names = Object.keys(PATTERNS);
-  let last = null;
-  try { last = sessionStorage.getItem("intro-pattern"); } catch {}
-  const choices = names.filter((n) => n !== last);
-  const pattern = choices[(rnd() * choices.length) | 0];
-  try { sessionStorage.setItem("intro-pattern", pattern); } catch {}
+  const pick = (obj, key) => {
+    const names = Object.keys(obj);
+    let last = null;
+    try { last = sessionStorage.getItem(key); } catch {}
+    const choices = names.filter((n) => n !== last);
+    const name = choices[(rnd() * choices.length) | 0];
+    try { sessionStorage.setItem(key, name); } catch {}
+    return obj[name]();
+  };
+  const order = pick(ORDERS, "intro-order"), origin = pick(PATTERNS, "intro-pattern");
+  const swirl = rnd() < 0.5 ? -1 : 1; // the whole swarm curls the same way, like a current
 
-  const agents = [];
-  for (let i = 0; i < N; i++) {
-    const job = ORDERS[(rnd() * ORDERS.length) | 0](cells.slice(i * per, (i + 1) * per));
-    if (!job.length) continue;
-    const [sx, sy] = PATTERNS[pattern](i);
-    const [ex, ey] = edgePoint((rnd() * 4) | 0, rnd()); // each leaves through a random edge
-    agents.push({ job, done: 0, x: sx, y: sy, sx, sy, ex, ey });
-  }
+  cells.forEach((c) => { c.key = order(c); });
+  cells.sort((a, b) => a.key - b.key);
+  const total = cells.length;
+  const lift = (v) => Math.round(v + (255 - v) * 0.35); // particles glow a little hotter than they land
+  cells.forEach((c, i) => {
+    c.born = Math.max(0, (i / total) * SPAWN + (rnd() - 0.5) * 300);
+    c.dur = FLIGHT[0] + rnd() * (FLIGHT[1] - FLIGHT[0]);
+    [c.sx, c.sy] = origin(c);
+    // Bezier control point: off to one side of the straight path, so particles arc in.
+    const dx = c.x - c.sx, dy = c.y - c.sy, bend = swirl * (0.1 + rnd() * 0.4);
+    c.cx = c.sx + dx / 2 - dy * bend; c.cy = c.sy + dy / 2 + dx * bend;
+    c.hot = `rgb(${c.rgb.split(",").map((v) => lift(+v)).join(",")})`;
+  });
+  cells.sort((a, b) => a.born - b.born);
 
-  // ---- 3. Layers: `cover` hides the page (agents erase it), `fx` draws agents on top
+  // ---- 3. Layers: `cover` hides the page (particles erase it), `fx` draws them on top
   const mk = () => {
     const c = document.createElement("canvas");
     c.width = W * dpr; c.height = H * dpr;
@@ -184,26 +136,9 @@
   overlay.style.background = "transparent"; // the canvas is the cover now
 
   const status = document.getElementById("intro-status");
-  const total = cells.length, fmt = new Intl.NumberFormat();
+  const fmt = new Intl.NumberFormat();
 
-  // 7×5 agent sprite: c=hull, b=body, a=amber visor
-  const SPRITE = ["..ccc..", ".cbbbc.", "cbababc", ".cbbbc.", "..c.c.."];
-  const S = 2;
-  const drawAgent = (x, y, frame, i) => {
-    const ox = Math.round(x - 7), oy = Math.round(y - 22 + Math.sin(frame / 5 + i));
-    SPRITE.forEach((row, ry) => {
-      for (let rx = 0; rx < row.length; rx++) {
-        const ch = row[rx];
-        if (ch === ".") continue;
-        fx.fillStyle = ch === "c" ? CYAN : ch === "a" ? AMBER : BODY;
-        fx.fillRect(ox + rx * S, oy + ry * S, S, S);
-      }
-    });
-    if ((frame + i) % 4 < 2) { fx.fillStyle = AMBER; fx.fillRect(ox + 6, oy + 11, S, S); } // thruster flicker
-    return [ox + 7, oy + 10];
-  };
-
-  // Build complete → power on the logo's amber dot. Open a hole in the cover around
+  // Assembly complete → power on the logo's amber dot. Open a hole in the cover around
   // it so its flare isn't clipped, then let the CSS keyframes do the flicker/overshoot.
   let powered = false;
   const powerOn = () => {
@@ -221,65 +156,49 @@
     status.textContent = "power on";
   };
 
-  const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
-  const recent = [];
-  const place = (c, t) => { cover.clearRect(c.x, c.y, CELL, CELL); recent.push({ c, at: t }); };
+  const active = [];
+  let next = 0, landed = 0, doneAt = 0;
   const t0 = performance.now();
-  let frame = 0;
 
   const tick = (now) => {
     const t = now - t0;
-    frame++;
-    fx.clearRect(0, 0, W, H);
 
-    if (t < FLY) {
-      const p = ease(t / FLY);
-      agents.forEach((a) => { a.x = a.sx + (a.job[0].x - a.sx) * p; a.y = a.sy + (a.job[0].y - a.sy) * p; });
-      status.textContent = `spawning ${agents.length} agents`;
-    } else if (t < FLY + BUILD) {
-      const p = ease((t - FLY) / BUILD);
-      let placed = 0;
-      agents.forEach((a) => {
-        const target = Math.floor(a.job.length * p);
-        while (a.done < target) place(a.job[a.done++], t);
-        const cur = a.job[Math.max(0, a.done - 1)];
-        a.x += (cur.x - a.x) * 0.55; a.y += (cur.y - a.y) * 0.55;
-        a.cell = cur;
-        placed += a.done;
-      });
-      status.textContent = `agents assembling page  ${fmt.format(placed)} / ${fmt.format(total)} px`;
-    } else {
-      agents.forEach((a) => { // flush any remainder, then leave
-        while (a.done < a.job.length) place(a.job[a.done++], t);
-        a.cell = null;
-      });
-      powerOn();
-      const te = t - FLY - BUILD - HOLD;
-      if (te > 0) {
-        const p = ease(Math.min(1, te / EXIT));
-        agents.forEach((a) => {
-          a.lx ??= a.x; a.ly ??= a.y;
-          a.x = a.lx + (a.ex - a.lx) * p; a.y = a.ly + (a.ey - a.ly) * p;
-        });
+    // Fade the previous frame instead of clearing it: that leaves each particle a short trail.
+    fx.globalCompositeOperation = "destination-out";
+    fx.fillStyle = "rgba(0,0,0,.35)"; fx.fillRect(0, 0, W, H);
+    fx.globalCompositeOperation = "source-over";
+
+    while (next < total && cells[next].born <= t) active.push(cells[next++]);
+
+    let keep = 0, fill = "";
+    for (let k = 0; k < active.length; k++) {
+      const p = active[k];
+      if (p.hot !== fill) fx.fillStyle = fill = p.hot;
+      const u = (t - p.born) / p.dur;
+      if (u >= 1) { // docked: uncover the cell, with a brief flash
+        cover.clearRect(p.x, p.y, CELL, CELL);
+        fx.fillRect(p.x, p.y, CELL, CELL);
+        landed++;
+        continue;
       }
-      if (t - FLY - BUILD > 450) status.textContent = `construct stable · ${fmt.format(total)} px`;
-      if (te >= EXIT) { fx.clearRect(0, 0, W, H); return end(); }
+      const e = 1 - (1 - u) ** 3, r = 1 - e; // ease out: fast in flight, gentle docking
+      fx.fillRect(r * r * p.sx + 2 * r * e * p.cx + e * e * p.x,
+                  r * r * p.sy + 2 * r * e * p.cy + e * e * p.y, DOT, DOT);
+      active[keep++] = p;
     }
+    active.length = keep;
 
-    // freshly uncovered cells glow cyan for a moment, like a write head passing over
-    while (recent.length && t - recent[0].at > 80) recent.shift();
-    recent.forEach(({ c, at }) => {
-      fx.fillStyle = `rgba(31,209,224,${0.7 * Math.max(0, 1 - (t - at) / 80)})`;
-      fx.fillRect(c.x, c.y, CELL, CELL);
-    });
-
-    agents.forEach((a, i) => {
-      const [lx, ly] = drawAgent(a.x, a.y, frame, i);
-      if (a.cell) { // work beam
-        fx.strokeStyle = "rgba(31,209,224,.45)"; fx.lineWidth = 1;
-        fx.beginPath(); fx.moveTo(lx, ly); fx.lineTo(a.cell.x + CELL / 2, a.cell.y + CELL / 2); fx.stroke();
-      }
-    });
+    if (landed < total) {
+      status.textContent = landed
+        ? `nanoassembly  ${fmt.format(landed)} / ${fmt.format(total)} px`
+        : `releasing ${fmt.format(total)} nanoparticles`;
+    } else {
+      doneAt ||= t;
+      status.textContent = `lattice stable · ${fmt.format(total)} px`;
+      // Let the last trails fade, then power on the logo dot and lift the cover once
+      // its flicker/flare (CSS `dot-power-on`) has played out.
+      if (t - doneAt >= HOLD) { fx.clearRect(0, 0, W, H); powerOn(); setTimeout(end, POWER); return; }
+    }
 
     raf = requestAnimationFrame(tick);
   };
