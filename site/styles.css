@@ -81,14 +81,57 @@ code { font-family: var(--mono); font-size: .9em; color: var(--cyan); }
   white-space: nowrap;
 }
 .brand .orbit { width: 26px; height: 26px; }
-.nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
-.nav ul a {
+/* Section rail: fixed on the right edge, vertically centered. The amber dot rides a thin
+   track beside the labels and marks where the reader is in the page (see main.js). */
+.rail {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 36px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0 22px 0 0; /* room for the track */
+}
+.rail a {
+  display: block;
   color: var(--muted);
-  font-size: .72rem;
+  font-size: .66rem;
   letter-spacing: .2em;
   text-transform: uppercase;
+  line-height: 1;
+  transition: color .2s, opacity .25s;
 }
-.nav ul a:hover, .nav ul a.active { color: var(--cyan); }
+.rail a:hover, .rail a.active { color: var(--cyan); }
+.rail-track {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.rail-dot {
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  margin-top: -4.5px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+  will-change: transform;
+}
+/* Narrower than this the labels would run into the content column: show just the track and
+   dot, and the labels while the rail is hovered or focused. */
+@media (max-width: 1260px) {
+  .rail a { opacity: 0; }
+  .rail:hover a, .rail:focus-within a { opacity: 1; }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -267,14 +310,9 @@ footer .orbit { width: 48px; height: 48px; margin: 0 auto 24px; }
 footer .links { display: flex; justify-content: center; gap: 28px; letter-spacing: .2em; text-transform: uppercase; font-size: .75rem; }
 footer small { display: block; margin-top: 28px; color: var(--muted); letter-spacing: .1em; }
 
-/* Six nav links: tighten them on mid-size screens so they don't collide with the logo. */
-@media (max-width: 1000px) {
-  .nav ul { gap: 16px; }
-  .nav ul a { font-size: .66rem; letter-spacing: .12em; }
-}
-@media (max-width: 780px) { .nav ul { display: none; } }
+@media (max-width: 780px) { .rail { display: none; } }
 @media (max-width: 720px) {
-  .nav ul { display: none; }
+  .rail { display: none; }
   .patterns td:first-child { white-space: normal; }
   .log li { grid-template-columns: 48px 1fr; }
   .log .st { grid-column: 2; }
@@ -320,16 +358,6 @@ html.intro .orbit-mark.power-on::after { animation: dot-power-on .95s ease-out f
   22%  { opacity: .2;  box-shadow: 0 0 2px var(--amber);          filter: brightness(1); }
   50%  { opacity: 1;   box-shadow: 0 0 32px 8px var(--amber);     filter: brightness(1.7); }
   100% { opacity: 1;   box-shadow: 0 0 12px var(--amber);         filter: brightness(1); }
-}
-
-/* ---------- Section dissolve (each section built from particles; see dissolve.js) ---------- */
-.dissolve {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5; /* over the page, under the nav */
 }
 
 /* Career and toolbox side by side */

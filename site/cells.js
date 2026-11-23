@@ -1,4 +1,4 @@
-// Pixel map shared by the loading intro and the scroll dissolve: renders a region of the
+// Pixel map used by the loading intro: renders a region of the
 // page (text glyphs plus a few hand-drawn shapes) in its real colors onto an offscreen
 // canvas, and returns the CELL×CELL cells that contain ink, in document coordinates,
 // each with the "r,g,b" color of its ink.
@@ -20,7 +20,7 @@ window.CellMap = (() => {
     const walk = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
     for (let node; (node = walk.nextNode()); ) {
       const el = node.parentElement, cs = getComputedStyle(el);
-      if (cs.visibility === "hidden" || cs.display === "none") continue;
+      if (cs.visibility === "hidden" || cs.display === "none" || +cs.opacity === 0) continue;
       sc.fillStyle = cs.color;
       sc.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
       const upper = cs.textTransform === "uppercase";

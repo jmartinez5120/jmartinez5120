@@ -46,7 +46,7 @@
       root.classList.remove("intro");
       overlay.remove();
       releaseScroll();
-      dispatchEvent(new Event("intro:done")); // the scroll dissolve starts listening now
+      dispatchEvent(new Event("intro:done"));
     }, FADE);
   };
   SKIP.forEach((e) => addEventListener(e, end, { passive: true }));
