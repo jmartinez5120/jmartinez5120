@@ -56,4 +56,15 @@ if (rail && track && dot) {
   measure();
 }
 
+// Pattern diagrams: freeze their animation for reduced-motion users, and only run them
+// while they're on screen.
+const diagrams = document.querySelectorAll(".diagram svg");
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  diagrams.forEach((s) => { s.pauseAnimations(); s.setCurrentTime(1.2); });
+} else {
+  const io = new IntersectionObserver((entries) =>
+    entries.forEach((e) => (e.isIntersecting ? e.target.unpauseAnimations() : e.target.pauseAnimations())));
+  diagrams.forEach((s) => io.observe(s));
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();

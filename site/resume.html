@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>John R. Martinez · Résumé</title>
+<meta name="robots" content="noindex">
+<!-- ATS-friendly résumé: one column, standard headings, real text, no tables or graphics.
+     resume.pdf is printed from this file with headless Chrome (Letter, default margins from @page). -->
+<style>
+  @page { size: Letter; margin: 0.6in 0.65in; }
+  body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; line-height: 1.38; color: #111; max-width: 7.4in; margin: 24px auto; padding: 0 16px; }
+  @media print { body { margin: 0; padding: 0; } }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: .02em; }
+  .title { font-size: 11.5pt; margin: 2px 0 4px; }
+  .contact { font-size: 9.5pt; margin: 0; }
+  .contact a { color: #111; text-decoration: none; }
+  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px solid #999; padding-bottom: 2px; margin: 16px 0 6px; }
+  h3 { font-size: 10.5pt; margin: 8px 0 0; }
+  .meta { margin: 0; font-style: italic; }
+  p { margin: 4px 0; }
+  ul { margin: 3px 0 0 16px; padding: 0; }
+  li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<h1>John R. Martinez</h1>
+<p class="title">Software &amp; Systems Engineer · Distributed Systems · Identity &amp; Security · AI</p>
+<p class="contact">Florida, USA · English / Spanish · <a href="https://liminalorbit.com">liminalorbit.com</a> · <a href="https://www.linkedin.com/in/john-martinez-10aba346">linkedin.com/in/john-martinez-10aba346</a> · <a href="https://github.com/jmartinez5120">github.com/jmartinez5120</a></p>
+
+<h2>Summary</h2>
+<p>Software and systems engineer with 15+ years of experience, including 10+ years at American Express. Architects distributed, event-driven systems and modernizes mission-critical identity and authentication infrastructure without interrupting operations. Leads engineering teams (10+ engineers across two teams). Independently designs and builds products end to end, and works hands-on with autonomous AI agents and local model fine-tuning.</p>
+
+<h2>Experience</h2>
+
+<h3>Senior Engineer I, Identity &amp; Authentication Modernization</h3>
+<p class="meta">American Express · Aug 2023 – Present</p>
+<ul>
+  <li>Technical lead and solution architect for the multi-year modernization of the americanexpress.com single sign-on platform, originally a 1996 monolithic Oracle stored-procedure system with identity data fragmented across MongoDB, Couchbase, and other stores.</li>
+  <li>Architected an event-driven platform: PostgreSQL system of record with a MongoDB read model (CQRS), replicated in near real time through Debezium and Kafka Connect.</li>
+  <li>Migrated incrementally with the strangler-fig pattern, replacing the legacy system route by route with no downtime.</li>
+  <li>Led the 10-engineer identity data-layer team and a second authentication team.</li>
+  <li>Delivered passwordless, phishing-resistant authentication: Passkeys, Selfie, and Tap Card to Login.</li>
+  <li>Created CORTEX, a GraphRAG built directly from source code that lets AI agents navigate enterprise code across thousands of repositories, making impact assessment and discovery analysis far more efficient.</li>
+</ul>
+
+<h3>Senior Engineer II, Customer Demographic Search Engine</h3>
+<p class="meta">American Express · Jun 2022 – Aug 2023</p>
+<ul>
+  <li>Engineering lead for a Spring and Elasticsearch engine powering demographic matching and risk scoring at the moment of application, central to new-customer acquisition.</li>
+  <li>Engineered for sub-second response under acquisition-flow traffic.</li>
+  <li>Modernized high-throughput services to non-blocking, reactive I/O to keep latency flat under load.</li>
+</ul>
+
+<h3>Engineer, Customer 360 Products</h3>
+<p class="meta">American Express · Dec 2015 – Jun 2022</p>
+<ul>
+  <li>Built Java/Spring services and data integrations powering unified customer views across the enterprise.</li>
+  <li>Designed, integrated, and supported business-critical APIs in production, progressing through the engineering ladder.</li>
+</ul>
+
+<h3>Earlier Experience</h3>
+<ul>
+  <li>ETL Developer, Insight Global (for American Express): Informatica ETL development.</li>
+  <li>Project Manager / Team Lead, Softtek: BI and data-warehouse delivery (Informatica PowerCenter / PowerExchange, IBM Cognos) for EVERTEC and Claro.</li>
+</ul>
+
+<h2>Independent Engineering Projects</h2>
+
+<h3>TapeRoom: End-to-End Encrypted Communication Platform for Financial Markets</h3>
+<ul>
+  <li>Designed and built a real-time messaging platform where tickers in a message become live quote cards; chat-core MVP on TestFlight (iOS), with macOS and web clients.</li>
+  <li>Go backend split into REST API, WebSocket gateway (fan-out through Redis pub/sub, presence), and market-data worker; PostgreSQL with TimescaleDB.</li>
+  <li>Signal-protocol end-to-end encryption with multi-device support and a Rust crypto core; the server stores ciphertext only. Passkeys (WebAuthn), TOTP, and account recovery.</li>
+</ul>
+
+<h3>Quartermaster: Supply Chain Intelligence and Dependency Modeling</h3>
+<ul>
+  <li>Built a personal investment research platform that models corporate supply chain relationships and ranks companies exposed to a disruption, with confidence scores and evidence.</li>
+  <li>Collectors ingest SEC EDGAR, GLEIF, USPTO, and macroeconomic data into PostgreSQL; an aggregation pipeline builds a Neo4j relationship graph and Elasticsearch index.</li>
+  <li>Java 21, Spring Boot 3, WebFlux, Spring Batch, Redis, React, Cytoscape.js.</li>
+</ul>
+
+<h3>Hermes: Autonomous Operations Agent</h3>
+<ul>
+  <li>Always-on agent that monitors self-hosted services, raises alerts on failure, and runs operations across a K3s cluster.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<p><strong>Languages and frameworks:</strong> Java, Go, SQL, Spring Boot, Spring WebFlux, reactive programming</p>
+<p><strong>Architecture patterns:</strong> CQRS, event-driven architecture, microservices</p>
+<p><strong>Data:</strong> Apache Kafka, Debezium, PostgreSQL, TimescaleDB, Oracle, Cassandra, MongoDB, Elasticsearch, Redis, Neo4j</p>
+<p><strong>Security and identity:</strong> SSO, authentication and authorization, Passkeys / WebAuthn, end-to-end encryption, IAM</p>
+<p><strong>Infrastructure:</strong> Google Cloud (GCP), AWS, on-prem Kubernetes (k8s, k3s), Docker, CI/CD, Grafana, Loki</p>
+<p><strong>AI:</strong> GraphRAG over source code, autonomous agents, agent orchestration, local LLM inference and fine-tuning (QLoRA, Unsloth, NVIDIA DGX Spark), Langfuse, Helicone</p>
+
+<h2>Education</h2>
+<p>B.S. Computer Science, Polytechnic University of Puerto Rico</p>
+
+</body>
+</html>

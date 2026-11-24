@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>John R. Martinez · Software Architect</title>
-  <meta name="description" content="John R. Martinez: Software Architect, enterprise systems, and AI ecosystem development.">
+  <title>John R. Martinez · Software &amp; Systems Engineer</title>
+  <meta name="description" content="John R. Martinez: Software & Systems Engineer. Distributed systems, mission-critical identity infrastructure, and AI.">
   <meta name="theme-color" content="#0b0d10">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=21">
   <!-- Arm the loading intro before first paint (skipped for reduced-motion users). -->
   <script>
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<nav class="nav">
+<nav class="nav" aria-label="Sections">
   <a class="brand" href="#top" aria-label="Home">
     <svg class="orbit" viewBox="0 0 120 120" aria-hidden="true">
       <circle class="ring" cx="60" cy="60" r="50"/>
@@ -37,174 +37,351 @@
     <li class="rail-track" aria-hidden="true"><span class="rail-dot"></span></li>
     <li><a href="#top">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Architecture</a></li>
-    <li><a href="#method">Method</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#disciplines">Disciplines</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#beyond">Beyond</a></li>
+    <li><a href="#work">Architecture</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#principles">Principles</a></li>
   </ul>
 </nav>
 
 <header class="hero" id="top">
   <div class="orbit-mark" aria-hidden="true"></div>
   <h1>John R. Martinez</h1>
-  <p class="tagline">Software Architect · Enterprise Systems · AI Ecosystem Development</p>
-  <p class="status">Florida, USA · EN / ES · <span>●</span> between what is and what could be</p>
+  <p class="tagline">Software &amp; Systems Engineer</p>
+  <p class="statement">Engineering secure, resilient, and scalable systems for complex environments.</p>
+  <p class="status">Florida, USA · EN / ES · <span class="glow-dot" aria-hidden="true"></span> between what is and what could be</p>
   <div class="scroll-cue" aria-hidden="true"></div>
 </header>
 
 <main>
 
+  <!-- ============ About ============ -->
   <section id="about">
     <p class="eyebrow">// whoami</p>
     <h2>About</h2>
-    <p class="lede">
-      I design distributed systems and lead engineering teams. By day that means modernizing
-      identity platforms at American Express that have been running since before some of my teammates
-      were born. After hours I work on my own projects: <strong>TapeRoom</strong>, an end-to-end encrypted
-      chat app where tickers turn into live quote cards, and <strong>Quartermaster</strong>, a research tool
-      I built for my own investing that maps supply chains to show who gets hit when a company stumbles.
-      I build software
-      <em>with</em> AI as much as by hand.
-    </p>
-<pre class="terminal"><span class="t">Engineer</span> john = <span class="t">Engineer</span>.<span class="k">builder</span>()
-    .<span class="k">role</span>(<span class="s">"Software Architect / Senior Software Engineer"</span>)
-    .<span class="k">dayJob</span>(<span class="s">"American Express (10+ years): identity &amp; SSO modernization"</span>)
-    .<span class="k">experience</span>(<span class="s">"15+ years across enterprise platforms and my own projects"</span>)
-    .<span class="k">builds</span>(<span class="s">"TapeRoom"</span>, <span class="s">"Quartermaster"</span>, <span class="s">"Hermes"</span>)
-    .<span class="k">leads</span>(<span class="s">"Two teams, 10+ engineers on the data layer"</span>)
-    .<span class="k">withAI</span>(<span class="s">"Daily: agents, custom skills, local model fine-tuning"</span>)
-    .<span class="k">education</span>(<span class="s">"B.S. Computer Science, Polytechnic University of Puerto Rico"</span>)
-    .<span class="k">build</span>();</pre>
+    <div class="about-grid">
+    <div class="prose">
+      <p class="lede">I architect distributed systems, modernize mission-critical infrastructure, and lead engineering teams in solving complex technical challenges.</p>
+      <p>With over a decade at American Express, my work spans enterprise <strong>identity</strong>, <strong>authentication and authorization</strong>, distributed data platforms, and large-scale system modernization. I specialize in transforming legacy infrastructure into secure, resilient, <strong>event-driven architectures</strong> while maintaining operational continuity.</p>
+      <p>Beyond enterprise engineering, I independently design and build products from the ground up. My projects include <strong>TapeRoom</strong>, an end-to-end encrypted communication platform for financial markets, and <strong>Quartermaster</strong>, an investment intelligence platform that models supply chain dependencies and cascading market risks.</p>
+      <p>I actively explore the intersection of artificial intelligence, distributed computing, and software engineering through <strong>autonomous agents</strong>, <strong>local model experimentation</strong>, and AI-assisted development workflows.</p>
+      <p>I am driven by difficult engineering problems, technical ownership, and the pursuit of simpler, faster, and more reliable systems.</p>
+    </div>
+
+    <figure class="code" aria-label="Engineering identity, written as a Java builder">
+      <figcaption><span>Engineer.java</span><span>java</span></figcaption>
+<pre class="terminal"><code><span class="t">Engineer</span> john = <span class="t">Engineer</span>.<span class="k">builder</span>()
+    .<span class="k">discipline</span>(<span class="s">"Software &amp; Systems Engineering"</span>)
+    .<span class="k">experience</span>(<span class="s">"15+ years"</span>)
+    .<span class="k">enterprise</span>(<span class="s">"American Express | 10+ years"</span>)
+    .<span class="k">specialties</span>(
+        <span class="s">"Distributed Systems"</span>,
+        <span class="s">"Identity &amp; Security"</span>,
+        <span class="s">"Event-Driven Architecture"</span>,
+        <span class="s">"Data Infrastructure"</span>
+    )
+    .<span class="k">languages</span>(<span class="s">"Java"</span>, <span class="s">"SQL"</span>, <span class="s">"Shell Script / Bash"</span>)
+    .<span class="k">infrastructure</span>(
+        <span class="s">"GCP"</span>,
+        <span class="s">"AWS"</span>,
+        <span class="s">"On-Prem Kubernetes (k8s, k3s)"</span>,
+        <span class="s">"Docker"</span>,
+        <span class="s">"Kafka · Debezium CDC"</span>,
+        <span class="s">"SQL &amp; NoSQL Databases"</span>,
+        <span class="s">"Redis"</span>,
+        <span class="s">"Elasticsearch"</span>,
+        <span class="s">"Grafana · Loki"</span>,
+        <span class="s">"NVIDIA DGX Spark"</span>
+    )
+    .<span class="k">research</span>(
+        <span class="s">"Passwordless &amp; Zero Trust Security"</span>,
+        <span class="s">"Autonomous AI Agents"</span>,
+        <span class="s">"LLM Fine-Tuning"</span>
+    )
+    .<span class="k">education</span>(<span class="s">"B.S. Computer Science"</span>)
+    .<span class="k">philosophy</span>(
+        <span class="s">"Simplicity"</span>,
+        <span class="s">"Principles"</span>,
+        <span class="s">"Ownership"</span>
+    )
+    .<span class="k">build</span>();</code></pre>
+    </figure>
+    </div>
   </section>
 
+  <!-- ============ Disciplines ============ -->
+  <section id="disciplines">
+    <p class="eyebrow">// technical_capabilities</p>
+    <h2>Engineering Disciplines</h2>
+    <div class="disciplines">
+      <div>
+        <h3><span>01</span>Distributed Systems</h3>
+        <ul>
+          <li>Event-driven architectures</li>
+          <li>Asynchronous communication</li>
+          <li>Distributed data processing</li>
+          <li>Fault tolerance</li>
+          <li>Data consistency and replication</li>
+          <li>Reactive systems</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>02</span>Security &amp; Identity</h3>
+        <ul>
+          <li>Authentication and authorization</li>
+          <li>Identity platforms</li>
+          <li>Single sign-on</li>
+          <li>Passkeys and WebAuthn</li>
+          <li>Session management</li>
+          <li>End-to-end encryption</li>
+          <li>Enterprise security architecture</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>03</span>Infrastructure &amp; Computing</h3>
+        <ul>
+          <li>Cloud: GCP, AWS</li>
+          <li>On-prem Kubernetes (k8s, k3s)</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+          <li>Observability: Grafana, Loki</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>04</span>Data Engineering</h3>
+        <ul>
+          <li>Apache Kafka</li>
+          <li>Change data capture (Debezium)</li>
+          <li>PostgreSQL · TimescaleDB</li>
+          <li>Oracle</li>
+          <li>Cassandra · MongoDB</li>
+          <li>Elasticsearch</li>
+          <li>Redis</li>
+          <li>Neo4j graph modeling</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>05</span>Artificial Intelligence</h3>
+        <ul>
+          <li>Autonomous AI agents</li>
+          <li>Agent orchestration (subagents, skills)</li>
+          <li>Local LLM inference</li>
+          <li>Fine-tuning experiments (QLoRA, Unsloth)</li>
+          <li>AI-assisted engineering workflows</li>
+          <li>Agent tracing (Langfuse, Helicone)</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>06</span>Software Engineering</h3>
+        <ul>
+          <li>Java · Spring Boot · WebFlux</li>
+          <li>Go</li>
+          <li>SQL</li>
+          <li>Reactive programming</li>
+          <li>Concurrent programming</li>
+          <li>API architecture (REST, WebSocket)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Experience ============ -->
+  <section id="experience">
+    <p class="eyebrow">// professional_experience</p>
+    <h2>Engineering Experience</h2>
+    <p class="org"><strong>American Express</strong><span>Dec 2015 – Present · 10+ years</span></p>
+    <ol class="timeline">
+      <li>
+        <span class="when">Aug 2023 – Present</span>
+        <h3>Senior Engineer I · Identity &amp; Authentication Modernization</h3>
+        <p class="problem">The americanexpress.com single sign-on platform was built in 1996 as a monolithic Oracle stored-procedure system, with identity data fragmented across MongoDB, Couchbase, and other stores.</p>
+        <ul>
+          <li><strong>Technical lead and solution architect</strong> for the multi-year program to modernize it.</li>
+          <li><strong>Architected</strong> an event-driven target platform: a PostgreSQL system of record with a MongoDB read model, replicated in near real time through Debezium and Kafka Connect.</li>
+          <li><strong>Migrated</strong> incrementally with the strangler-fig pattern, replacing the legacy system route by route with no downtime.</li>
+          <li><strong>Led</strong> the 10-engineer identity data-layer team and a second authentication team.</li>
+          <li><strong>Delivered</strong> passwordless, phishing-resistant sign-in: Passkeys, Selfie, and Tap Card to Login.</li>
+          <li><strong>Created CORTEX</strong>, a GraphRAG built directly from source code that lets AI agents navigate enterprise code across thousands of repositories, making impact assessment and discovery analysis far more efficient.</li>
+        </ul>
+        <p class="stack">Java · Spring Boot · PostgreSQL · MongoDB · Kafka · Debezium · Passkeys / WebAuthn · GraphRAG · AI agents</p>
+      </li>
+      <li>
+        <span class="when">Jun 2022 – Aug 2023</span>
+        <h3>Senior Engineer II · Customer Demographic Search Engine</h3>
+        <p class="problem">New-customer acquisition depends on matching applicant demographics and scoring risk at the moment of application, inside the application flow.</p>
+        <ul>
+          <li><strong>Led engineering</strong> of the Spring and Elasticsearch search engine behind demographic matching and risk scoring.</li>
+          <li><strong>Engineered</strong> it for sub-second response under acquisition-flow traffic.</li>
+          <li><strong>Modernized</strong> high-throughput services to non-blocking, reactive I/O where thread-per-request could not hold latency under load.</li>
+        </ul>
+        <p class="stack">Java · Spring · Elasticsearch · Reactive programming</p>
+      </li>
+      <li>
+        <span class="when">Dec 2015 – Jun 2022</span>
+        <h3>Engineer · Customer 360 Products</h3>
+        <ul>
+          <li><strong>Built</strong> Java/Spring services and data integrations powering unified customer views across the enterprise.</li>
+          <li><strong>Designed, integrated, and supported</strong> business-critical APIs in production, with scope growing across the engineering ladder.</li>
+        </ul>
+        <p class="stack">Java · Spring · Data integration · APIs</p>
+      </li>
+    </ol>
+    <p class="org"><strong>Earlier</strong><span>Insight Global · Softtek</span></p>
+    <ol class="timeline">
+      <li>
+        <h3>ETL Developer · Project Manager / Team Lead</h3>
+        <ul>
+          <li><strong>Developed</strong> Informatica ETL for American Express through Insight Global.</li>
+          <li><strong>Led</strong> delivery of BI and data-warehouse solutions (Informatica PowerCenter / PowerExchange, IBM Cognos) for EVERTEC and Claro through Softtek.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ Architecture decisions ============ -->
   <section id="work">
-    <p class="eyebrow">// architecture</p>
-    <h2>Software Architecture</h2>
+    <p class="eyebrow">// architecture_decisions</p>
+    <h2>Architecture in Production</h2>
     <blockquote class="quote">
       <p>&ldquo;As AI makes code abundant, architecture becomes the discipline that matters most.
       Generating software is no longer the hard part; designing systems that last is.&rdquo;</p>
       <cite>John R. Martinez</cite>
     </blockquote>
-    <p class="lede muted">
+    <p class="lede muted full">
       I own systems end to end: the roadmap, the data model, the failure modes, and the runbook the
-      on-call team actually uses. Most of my work is moving platforms that have outgrown their original
-      design onto something the team can run without holding its breath, one piece at a time.
+      on-call team actually uses. I reach for the simplest pattern that solves the specific problem,
+      and I name the trade-off before committing to it.
     </p>
-    <table class="patterns">
-      <tr><td>CQRS</td><td>Reads and writes had very different shapes and volumes. PostgreSQL is the source of truth for writes; MongoDB serves high-volume lookups.</td></tr>
-      <tr><td>Change Data Capture</td><td>The read model had to stay current without dual-writes, so changes stream from Postgres via Debezium + Kafka Connect.</td></tr>
-      <tr><td>Event-Driven Architecture</td><td>Teams kept blocking on each other's services. Kafka let them react to events instead of calling synchronously.</td></tr>
-      <tr><td>Strangler Fig</td><td>A 1996 Oracle stored-proc SSO system couldn't be rewritten in one shot, so we replaced it route by route with no downtime.</td></tr>
-      <tr><td>Microservices</td><td>One deploy shouldn't gate every team, so responsibilities are split into independently shippable Spring Boot services.</td></tr>
-      <tr><td>Reactive services</td><td>Under acquisition-flow traffic, thread-per-request fell over. Non-blocking I/O kept latency flat under load.</td></tr>
-    </table>
-  </section>
-
-  <section id="method">
-    <p class="eyebrow">// method</p>
-    <h2>How I Work With AI</h2>
-    <p class="lede muted">
-      An agent starts every session with no memory of the last one, so I keep the thinking in writing.
-      Every stage leaves behind a document the next stage, and the next engineer, can pick up.
-    </p>
-    <div class="steps">
-      <div class="card"><h3>Research</h3><p>Dig into the problem, prior art, and constraints with the agent before any code.</p><p class="out">→ PRR brief</p></div>
-      <div class="card"><h3>Design</h3><p>Turn the research into an approach and weigh the trade-offs out loud.</p><p class="out">→ Design doc + ADRs</p></div>
-      <div class="card"><h3>Architect</h3><p>Define structure, data model, and interfaces before implementation.</p><p class="out">→ <code>CLAUDE.md</code> / <code>AGENTS.md</code></p></div>
-      <div class="card"><h3>Execute</h3><p>Agents implement against that context; I review, correct, and iterate.</p><p class="out">→ Small PRs + runbooks</p></div>
+    <div class="patterns">
+      <article class="pattern">
+        <header><h3>CQRS</h3><p class="where">Enterprise identity · Tier-0</p><figure class="diagram"><svg viewBox="0 0 280 140" role="img" aria-labelledby="t-cqrs d-cqrs"><title id="t-cqrs">CQRS</title><desc id="d-cqrs">A client sends a write to PostgreSQL; it syncs to the MongoDB read model, which serves a stream of reads back to the client.</desc><path d="M36,66 C80,36 118,26 160,26" class="l"/><path d="M166,32 L166,104" class="l dash"/><path d="M160,110 C118,110 80,100 36,74" class="l"/><circle cx="30" cy="70" r="6" class="n"/><text x="30" y="96" text-anchor="middle">client</text><circle cx="166" cy="26" r="6" class="n"/><text x="178" y="30" text-anchor="start">write · postgres</text><circle cx="166" cy="110" r="6" class="n"/><text x="178" y="114" text-anchor="start">read · mongodb</text><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.020;0.300;1" path="M36,66 C80,36 118,26 160,26"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.020;0.300"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.320;0.500;1" path="M166,32 L166,104"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.320;0.500"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.080;0.240;1" path="M160,110 C118,110 80,100 36,74"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.080;0.240"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.260;0.420;1" path="M160,110 C118,110 80,100 36,74"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.260;0.420"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.440;0.600;1" path="M160,110 C118,110 80,100 36,74"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.440;0.600"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.620;0.780;1" path="M160,110 C118,110 80,100 36,74"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.620;0.780"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.800;0.960;1" path="M160,110 C118,110 80,100 36,74"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.800;0.960"/></circle></svg></figure></header>
+        <dl>
+          <div><dt>Constraint</dt><dd>Reads and writes had very different shapes and volumes.</dd></div>
+          <div><dt>Decision</dt><dd>PostgreSQL is the source of truth for writes; a MongoDB read model serves high-volume lookups.</dd></div>
+          <div><dt>Trade-off accepted</dt><dd>Eventual consistency between the write and read sides, in exchange for scaling each independently.</dd></div>
+        </dl>
+      </article>
+      <article class="pattern">
+        <header><h3>Event-Driven Architecture</h3><p class="where">Enterprise identity · Tier-0</p><figure class="diagram"><svg viewBox="0 0 280 140" role="img" aria-labelledby="t-eda d-eda"><title id="t-eda">Event-driven architecture</title><desc id="d-eda">A producer publishes an event to a Kafka topic; each consumer, including a BigQuery data lake, receives it asynchronously.</desc><path d="M34,40 L262,40" class="l"/><circle cx="28" cy="40" r="6" class="n"/><text x="28" y="62" text-anchor="middle">producer</text><text x="148" y="28" text-anchor="middle">kafka topic</text><path d="M110,40 L110,98" class="l"/><circle cx="110" cy="104" r="6" class="n"/><text x="110" y="128" text-anchor="middle">service</text><path d="M180,40 L180,98" class="l"/><circle cx="180" cy="104" r="6" class="n"/><text x="180" y="128" text-anchor="middle">service</text><path d="M250,40 L250,98" class="l"/><circle cx="250" cy="104" r="6" class="n"/><text x="250" y="128" text-anchor="middle">bigquery</text><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.020;0.620;1" path="M34,40 L262,40"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.020;0.620"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.220;0.420;1" path="M110,40 L110,98"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.220;0.420"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.404;0.604;1" path="M180,40 L180,98"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.404;0.604"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.588;0.788;1" path="M250,40 L250,98"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.588;0.788"/></circle></svg></figure></header>
+        <dl>
+          <div><dt>Constraint</dt><dd>Transactions and data without a critical SLA, and data that must reliably reach downstream applications such as BigQuery data lakes.</dd></div>
+          <div><dt>Decision</dt><dd>Publish them through Kafka as events instead of synchronous calls.</dd></div>
+          <div><dt>Trade-off accepted</dt><dd>Asynchronous delivery and a broker to operate, in exchange for decoupled, durable delivery.</dd></div>
+        </dl>
+      </article>
+      <article class="pattern">
+        <header><h3>Microservices</h3><p class="where">Enterprise identity · Tier-0</p><figure class="diagram"><svg viewBox="0 0 280 150" role="img" aria-labelledby="t-ms d-ms"><title id="t-ms">Microservices</title><desc id="d-ms">A gateway routes traffic to four small services; each one redeploys in turn while the others keep serving traffic.</desc><circle cx="36" cy="72" r="6" class="n"/><text x="36" y="94" text-anchor="middle">gateway</text><path d="M41.5,69.5 L144.5,22.5" class="l"/><g><circle cx="150" cy="20" r="6" class="n"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="1;0.2;1" keyTimes="0;0.060;0.200"/></g><text x="163" y="23" text-anchor="start">svc 1</text><circle cx="150" cy="20" r="9" class="flash" opacity="0"><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0;0" keyTimes="0;0.200;0.210;0.260;1"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.338;0.448;1" path="M41.5,69.5 L144.5,22.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.338;0.448"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.505;0.615;1" path="M41.5,69.5 L144.5,22.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.505;0.615"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.672;0.782;1" path="M41.5,69.5 L144.5,22.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.672;0.782"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.838;0.948;1" path="M41.5,69.5 L144.5,22.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.838;0.948"/></circle><path d="M42.0,71.3 L190.0,54.7" class="l"/><g><circle cx="196" cy="54" r="6" class="n"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="1;0.2;1" keyTimes="0;0.290;0.430"/></g><text x="209" y="57" text-anchor="start">svc 2</text><circle cx="196" cy="54" r="9" class="flash" opacity="0"><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0;0" keyTimes="0;0.430;0.440;0.490;1"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.050;0.160;1" path="M42.0,71.3 L190.0,54.7"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.050;0.160"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.550;0.660;1" path="M42.0,71.3 L190.0,54.7"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.550;0.660"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.717;0.827;1" path="M42.0,71.3 L190.0,54.7"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.717;0.827"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.883;0.993;1" path="M42.0,71.3 L190.0,54.7"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.883;0.993"/></circle><path d="M42.0,72.7 L190.0,89.3" class="l"/><g><circle cx="196" cy="90" r="6" class="n"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="1;0.2;1" keyTimes="0;0.520;0.660"/></g><text x="209" y="93" text-anchor="start">svc 3</text><circle cx="196" cy="90" r="9" class="flash" opacity="0"><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0;0" keyTimes="0;0.660;0.670;0.720;1"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.095;0.205;1" path="M42.0,72.7 L190.0,89.3"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.095;0.205"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.262;0.372;1" path="M42.0,72.7 L190.0,89.3"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.262;0.372"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.762;0.872;1" path="M42.0,72.7 L190.0,89.3"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.762;0.872"/></circle><path d="M41.5,74.5 L144.5,121.5" class="l"/><g><circle cx="150" cy="124" r="6" class="n"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="1;0.2;1" keyTimes="0;0.750;0.890"/></g><text x="163" y="127" text-anchor="start">svc 4</text><circle cx="150" cy="124" r="9" class="flash" opacity="0"><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0;0" keyTimes="0;0.890;0.900;0.950;1"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.140;0.250;1" path="M41.5,74.5 L144.5,121.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.140;0.250"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.307;0.417;1" path="M41.5,74.5 L144.5,121.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.307;0.417"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.473;0.583;1" path="M41.5,74.5 L144.5,121.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.473;0.583"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.640;0.750;1" path="M41.5,74.5 L144.5,121.5"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.640;0.750"/></circle><text x="0" y="146" text-anchor="start">one service redeploys · the rest keep serving</text></svg></figure></header>
+        <dl>
+          <div><dt>Constraint</dt><dd>One deploy must never put the whole Tier-0 application at risk.</dd></div>
+          <div><dt>Decision</dt><dd>Small, independently deployed services, each with a single responsibility.</dd></div>
+          <div><dt>Trade-off accepted</dt><dd>More moving parts to operate, in exchange for isolated failures and changes that ship without disrupting the whole platform.</dd></div>
+        </dl>
+      </article>
     </div>
   </section>
 
+  <!-- ============ Projects ============ -->
   <section id="projects">
-    <p class="eyebrow">// personal projects</p>
-    <h2>Projects &amp; Lab</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="tag">Agent · Homelab</span>
-        <h3>Hermes</h3>
-        <p>An always-on agent (the messenger) that monitors self-hosted services, fires alerts on failure, and runs ops across my K3s cluster.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Local AI</span>
-        <h3>DGX Spark Fine-Tuning</h3>
-        <p>Local training and fine-tuning on an NVIDIA DGX Spark: QLoRA / Unsloth workflows for task-specific models when cloud APIs aren't the right fit.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Tooling</span>
-        <h3>Custom Skills &amp; Subagents</h3>
-        <p>Reusable skills for CDC / Debezium scaffolding, TimescaleDB hypertables, and Spring Boot service generation, plus subagents for review, API testing, and k8s ops.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Observability</span>
-        <h3>Agent Tracing</h3>
-        <p>Langfuse and Helicone wired into my agent workflows so I can see what each run actually did and what it cost.</p>
-      </article>
+    <p class="eyebrow">// independent_engineering</p>
+    <h2>Selected Engineering Projects</h2>
+
+    <article class="case">
+      <header>
+        <p class="class">Real-Time Communication Infrastructure</p>
+        <h3>TapeRoom</h3>
+        <p class="state">Chat-core MVP on TestFlight (iOS) · macOS and web clients</p>
+      </header>
+      <p class="overview">An end-to-end encrypted communication platform for financial market participants, integrating real-time messaging with contextual market intelligence: a ticker typed into a message becomes a live quote card.</p>
+      <figure class="diagram wide"><svg viewBox="0 0 900 160" role="img" aria-labelledby="t-tr d-tr"><title id="t-tr">TapeRoom system architecture</title><desc id="d-tr">Clients talk WebSocket to the gateway and REST to the api. A chat message goes from a client through the gateway and Redis pub/sub back out to the chat. A market tick goes from market data through the worker and Redis to every client and is stored in TimescaleDB. REST calls go through the api to PostgreSQL.</desc><path d="M140,44 L250,44" class="l"/><path d="M250,44 L440,44" class="l"/><path d="M630,44 L440,44" class="l"/><path d="M820,44 L630,44" class="l"/><path d="M140,44 L250,124" class="l"/><path d="M250,124 L440,124" class="l"/><path d="M630,44 L440,124" class="l dash"/><text x="195" y="36" text-anchor="middle">websocket</text><text x="186" y="100" text-anchor="end">REST</text><circle cx="140" cy="44" r="6" class="n"/><text x="126" y="42" text-anchor="end">clients</text><text x="126" y="56" text-anchor="end">iOS · macOS · web</text><circle cx="250" cy="44" r="6" class="n"/><text x="250" y="28" text-anchor="middle">gateway</text><circle cx="630" cy="44" r="6" class="n"/><text x="630" y="28" text-anchor="middle">worker</text><circle cx="820" cy="44" r="6" class="n"/><text x="820" y="28" text-anchor="middle">market data</text><circle cx="250" cy="124" r="6" class="n"/><text x="250" y="150" text-anchor="middle">api</text><g class="db" transform="translate(440,44)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><text x="440" y="26" text-anchor="middle">redis · pub/sub · cache</text><g class="db" transform="translate(440,124)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><text x="440" y="152" text-anchor="middle">postgres + timescaledb</text><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.020;0.100;1" path="M140,44 L250,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.020;0.100"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.100;0.180;1" path="M250,44 L440,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.100;0.180"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.180;0.260;1" path="M440,44 L250,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.180;0.260"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.260;0.340;1" path="M250,44 L140,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.260;0.340"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.400;0.480;1" path="M820,44 L630,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.400;0.480"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.480;0.560;1" path="M630,44 L440,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.480;0.560"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.480;0.600;1" path="M630,44 L440,124"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.480;0.600"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.560;0.640;1" path="M440,44 L250,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.560;0.640"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.640;0.720;1" path="M250,44 L140,44"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.640;0.720"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.780;0.860;1" path="M140,44 L250,124"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.780;0.860"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.860;0.940;1" path="M250,124 L440,124"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.860;0.940"/></circle></svg></figure>
+      <dl class="facts">
+        <div><dt>Problem</dt><dd>Market conversations need real-time delivery and live prices without giving the server access to what people say.</dd></div>
+        <div><dt>Architecture</dt><dd>Go modular monolith split into <code>api</code> (REST), <code>gateway</code> (WebSocket connections, fan-out through Redis pub/sub, presence) and <code>worker</code> (market data polling and live ticks).</dd></div>
+        <div><dt>Security</dt><dd>Signal-protocol E2EE on every message, multi-device, with a Rust crypto core. The server stores ciphertext and routing metadata only. Sign-in with passkeys (WebAuthn), TOTP step-up, and account recovery.</dd></div>
+        <div><dt>Trade-off</dt><dd>Market cards are separate requests the platform can see, by design, so quotes can be resolved and filled in server-side while message content stays encrypted.</dd></div>
+        <div><dt>Performance</dt><dd>Data is read Redis → Postgres/Timescale → provider; an external provider is called only when stored data can't answer, always behind one provider-agnostic interface.</dd></div>
+        <div><dt>Stack</dt><dd>Go · WebSocket · Redis · PostgreSQL · TimescaleDB · Rust (libsignal) · SwiftUI · React · Google Cloud (Cloud Run, GKE-ready)</dd></div>
+      </dl>
+    </article>
+
+    <article class="case">
+      <header>
+        <p class="class">Supply Chain Intelligence &amp; Dependency Modeling</p>
+        <h3>Quartermaster</h3>
+        <p class="state">Personal research platform</p>
+      </header>
+      <p class="overview">An investment intelligence platform that models supply chain relationships, corporate dependencies, and cascading risks across interconnected industries. When one company is disrupted, it ranks which others are exposed, with confidence scores and the evidence behind them.</p>
+      <figure class="diagram wide"><svg viewBox="0 0 900 220" role="img" aria-labelledby="t-qm d-qm"><title id="t-qm">Quartermaster data pipeline</title><desc id="d-qm">Collectors pull public data from SEC EDGAR, GLEIF, USPTO, FRED and BLS, and OFAC and BIS, write it raw to PostgreSQL and publish events to Redis. The aggregation pipeline resolves entities and builds the Neo4j relationship graph and the Elasticsearch index, which serve the read-only API.</desc><path d="M120,34 L290,114" class="l"/><path d="M120,74 L290,114" class="l"/><path d="M120,114 L290,114" class="l"/><path d="M120,154 L290,114" class="l"/><path d="M120,194 L290,114" class="l"/><path d="M290,114 L440,170" class="l"/><path d="M290,114 L440,58" class="l dash"/><path d="M440,58 L590,114" class="l dash"/><path d="M440,170 L590,114" class="l"/><path d="M590,114 L720,58" class="l"/><path d="M590,114 L720,170" class="l"/><path d="M720,58 L830,114" class="l"/><path d="M720,170 L830,114" class="l"/><circle cx="120" cy="34" r="6" class="n"/><text x="106" y="38" text-anchor="end">sec edgar</text><circle cx="120" cy="74" r="6" class="n"/><text x="106" y="78" text-anchor="end">gleif</text><circle cx="120" cy="114" r="6" class="n"/><text x="106" y="118" text-anchor="end">uspto</text><circle cx="120" cy="154" r="6" class="n"/><text x="106" y="158" text-anchor="end">fred / bls</text><circle cx="120" cy="194" r="6" class="n"/><text x="106" y="198" text-anchor="end">ofac / bis</text><circle cx="290" cy="114" r="6" class="n"/><circle cx="590" cy="114" r="6" class="n"/><circle cx="830" cy="114" r="6" class="n"/><g class="db" transform="translate(440,170)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><g class="db" transform="translate(440,58)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><g class="db" transform="translate(720,58)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><g class="db" transform="translate(720,170)"><path d="M-8,-7 V7 A8,3 0 0 0 8,7 V-7 Z" class="n"/><ellipse cx="0" cy="-7" rx="8" ry="3" class="n"/><path d="M-8,0 A8,3 0 0 0 8,0" class="n" fill="none"/></g><text x="290" y="140" text-anchor="middle">collectors</text><text x="440" y="198" text-anchor="middle">postgres · raw</text><text x="440" y="40" text-anchor="middle">redis · events</text><text x="590" y="140" text-anchor="middle">aggregation</text><text x="720" y="40" text-anchor="middle">neo4j · graph</text><text x="720" y="198" text-anchor="middle">elasticsearch</text><text x="830" y="140" text-anchor="middle">api</text><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.020;0.120;1" path="M120,34 L290,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.020;0.120"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.055;0.155;1" path="M120,74 L290,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.055;0.155"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.090;0.190;1" path="M120,114 L290,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.090;0.190"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.125;0.225;1" path="M120,154 L290,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.125;0.225"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.160;0.260;1" path="M120,194 L290,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.160;0.260"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.260;0.350;1" path="M290,114 L440,170"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.260;0.350"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.260;0.350;1" path="M290,114 L440,58"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.260;0.350"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.360;0.450;1" path="M440,58 L590,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.360;0.450"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.380;0.470;1" path="M440,170 L590,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.380;0.470"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.520;0.610;1" path="M590,114 L720,58"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.520;0.610"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.520;0.610;1" path="M590,114 L720,170"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.520;0.610"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.660;0.740;1" path="M720,58 L830,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.660;0.740"/></circle><circle r="3.6" class="d" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.660;0.740;1" path="M720,170 L830,114"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.660;0.740"/></circle></svg></figure>
+      <dl class="facts">
+        <div><dt>Problem</dt><dd>Supply chain exposure is spread across filings, entity registries and economic data, and a shock propagates several hops before it shows up in a price.</dd></div>
+        <div><dt>Architecture</dt><dd>Independent collectors write raw public data to PostgreSQL and publish events; a single aggregation pipeline resolves entities and builds the relationship graph in Neo4j and the search index in Elasticsearch.</dd></div>
+        <div><dt>Modeling</dt><dd>Cascade impact = relationship strength × shock magnitude × 1 / hop distance, searched breadth-first up to 4 hops and pruned below 0.1.</dd></div>
+        <div><dt>Trade-off</dt><dd>2–4 hop cascade paths are materialized as graph edges ahead of time, trading storage and a daily batch for fast reads.</dd></div>
+        <div><dt>Consistency</dt><dd>Only the aggregation pipeline writes to Neo4j and Elasticsearch, so the graph and search index are always derived from one source of truth.</dd></div>
+        <div><dt>Stack</dt><dd>Java 21 · Spring Boot 3 · WebFlux · Spring Batch · PostgreSQL · Redis · Neo4j · Elasticsearch · React · Cytoscape.js</dd></div>
+      </dl>
+    </article>
+
+  </section>
+
+  <!-- ============ Research ============ -->
+  <section id="research">
+    <p class="eyebrow">// research_and_development</p>
+    <h2>Engineering Exploration</h2>
+    <div class="research">
+      <div>
+        <h3 class="st live">Active</h3>
+        <ul>
+          <li><strong>Local training and fine-tuning</strong> on an NVIDIA DGX Spark: QLoRA / Unsloth workflows for task-specific models where cloud APIs aren't the right fit.</li>
+          <li><strong>Workload automation with agents</strong> through Hermes on my K3s cluster.</li>
+          <li><strong>Agent observability:</strong> Langfuse and Helicone tracing to see what each agent run did and what it cost.</li>
+          <li><strong>Reusable agent tooling:</strong> skills for CDC / Debezium scaffolding, TimescaleDB hypertables and Spring Boot service generation, plus subagents for review, API testing and Kubernetes operations.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="st done">Completed</h3>
+        <ul>
+          <li><strong>2025</strong> · Production AI agents and agentic workflows</li>
+          <li><strong>2024</strong> · Machine learning, deep learning and neural network fundamentals</li>
+          <li><strong>2023</strong> · Modernized high-throughput services to reactive programming</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="st next">Research interests</h3>
+        <ul>
+          <li>Distributed AI inference</li>
+          <li>Edge and heterogeneous computing</li>
+          <li>Distributed workload orchestration</li>
+          <li>Fault-tolerant network systems</li>
+          <li>Advanced authentication technologies</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="experience">
-   <div class="split">
-   <div>
-    <p class="eyebrow">// career</p>
-    <h2>Experience</h2>
-    <ol class="timeline">
-      <li>
-        <span class="when">Aug 2023 – Present · American Express</span>
-        <h3>Senior Engineer I · Identity &amp; Authentication Modernization</h3>
-        <p>Technical lead and solution architect modernizing the americanexpress.com SSO platform, originally a 1996 Oracle stored-procedure monolith. Re-architected around a PostgreSQL system of record with a Cassandra read cache replicated via Debezium + Kafka Connect. Led a 10-engineer data-layer team plus an authentication team that shipped Passkeys, Selfie, and Tap Card to Login.</p>
-      </li>
-      <li>
-        <span class="when">Jun 2022 – Aug 2023 · American Express</span>
-        <h3>Senior Engineer II · Customer Demographic Search Engine</h3>
-        <p>Engineering lead for a Spring + Elasticsearch engine powering demographic matching and risk scoring at the moment of application, tuned for sub-second response.</p>
-      </li>
-      <li>
-        <span class="when">Dec 2015 – Jun 2022 · American Express</span>
-        <h3>Engineer · Customer 360 Products</h3>
-        <p>Java/Spring services and data integrations powering unified customer views across the enterprise.</p>
-      </li>
-      <li>
-        <span class="when">Earlier</span>
-        <h3>ETL Developer · Project Manager / Team Lead</h3>
-        <p>Informatica ETL at Insight Global (for Amex), and BI / data-warehouse delivery (Informatica PowerCenter, IBM Cognos) for EVERTEC and Claro via Softtek.</p>
-      </li>
-    </ol>
-   </div>
+  <!-- ============ Principles ============ -->
+  <section id="principles">
+    <p class="eyebrow">// engineering_principles</p>
+    <h2>How I Engineer</h2>
+    <div class="principles">
+      <div><h3>First-Principles Thinking</h3><p>Understand the underlying problem before selecting the technology.</p></div>
+      <div><h3>Reliability by Design</h3><p>Treat failure as an expected system condition, not an exceptional event.</p></div>
+      <div><h3>Performance Through Measurement</h3><p>Measure, benchmark, and optimize based on evidence rather than assumptions.</p></div>
+      <div><h3>Simplicity Over Complexity</h3><p>Prefer understandable, maintainable solutions over unnecessary abstraction.</p></div>
+      <div><h3>End-to-End Ownership</h3><p>Take responsibility for systems from architecture and implementation through deployment and operation.</p></div>
+      <div><h3>Continuous Exploration</h3><p>Experiment with emerging technologies to understand their capabilities, limitations, and practical applications.</p></div>
+    </div>
 
-   <div>
-    <p class="eyebrow">// toolbox</p>
-    <h2>Tools</h2>
-    <div class="stack-group"><h3>Languages &amp; Frameworks</h3><div class="chips"><span>Java</span><span>Spring Boot</span><span>Python</span><span>JavaScript</span><span>Bash</span><span>Maven</span></div></div>
-    <div class="stack-group"><h3>Data &amp; Messaging</h3><div class="chips"><span>PostgreSQL</span><span>Cassandra</span><span>MongoDB</span><span>Elasticsearch</span><span>Kafka</span><span>Debezium</span><span>Redis</span></div></div>
-    <div class="stack-group"><h3>Identity &amp; Security</h3><div class="chips"><span>Passkeys</span><span>OAuth / SSO</span><span>IAM</span></div></div>
-    <div class="stack-group"><h3>DevOps &amp; AI</h3><div class="chips"><span>Kubernetes / K3s</span><span>Docker</span><span>GitHub Actions</span><span>Grafana</span><span>Claude Code</span><span>Codex</span><span>QLoRA · Unsloth</span></div></div>
-   </div>
-   </div>
-  </section>
-
-  <section id="beyond">
-    <p class="eyebrow">// mission log</p>
-    <h2>Goals</h2>
-    <ul class="log">
-      <li><span class="yr">2026</span><span>Automate workloads with agents (Hermes)</span><span class="st live">IN PROGRESS</span></li>
-      <li><span class="yr">2026</span><span>Fine-tune my own models for task-specific work</span><span class="st live">IN PROGRESS</span></li>
-      <li><span class="yr">2025</span><span>Build production AI agents &amp; agentic workflows</span><span class="st done">DONE</span></li>
-      <li><span class="yr">2024</span><span>Machine learning · deep learning · neural networks</span><span class="st done">CONCEPTS DONE</span></li>
-      <li><span class="yr">2023</span><span>Modernize high-performing apps to reactive programming</span><span class="st done">DONE</span></li>
-      <li><span class="yr">2022</span><span>Grow in React &amp; JS, practice machine learning</span><span class="st done">DONE</span></li>
-      <li><span class="yr">2021</span><span>Learn React</span><span class="st done">DONE</span></li>
-    </ul>
-
-    <p class="eyebrow" style="margin-top:72px">// off the keyboard</p>
-    <h2>Beyond Code</h2>
-    <p class="lede muted">
-      I think systems are allowed to have a personality. I name services and migrations after the movies,
-      music, and games I grew up on, and I'll tuck the occasional easter egg into an app.
-    </p>
-    <div class="hobbies">
-      <span>Husband &amp; Father</span><span>Drums</span><span>Landscape Photography</span>
-      <span>Golf &amp; Tennis</span><span>Woodworking</span><span>The Markets</span>
+    <div id="method" class="method">
+      <h3 class="sub">Working with AI</h3>
+      <p class="muted">An agent starts every session with no memory of the last one, so the thinking lives in writing. Every stage leaves a document the next stage, and the next engineer, can pick up.</p>
+      <ol class="steps">
+        <li><h4>Research</h4><p>Problem, prior art, and constraints, before any code.</p><p class="out">→ PRR brief</p></li>
+        <li><h4>Design</h4><p>An approach, with the trade-offs weighed out loud.</p><p class="out">→ Design doc + ADRs</p></li>
+        <li><h4>Architect</h4><p>Structure, data model, and interfaces before implementation.</p><p class="out">→ <code>CLAUDE.md</code> / <code>AGENTS.md</code></p></li>
+        <li><h4>Execute</h4><p>Agents implement against that context; I review, correct, and iterate.</p><p class="out">→ Small PRs + runbooks</p></li>
+      </ol>
     </div>
   </section>
 
@@ -216,9 +393,11 @@
     <circle class="dot" cx="60" cy="10" r="8"/>
   </svg>
   <div class="links">
-    <a href="https://github.com/jmartinez5120">GitHub</a>
-    <a href="https://www.linkedin.com/in/john-martinez-10aba346">LinkedIn</a>
+    <a href="https://github.com/jmartinez5120" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/john-martinez-10aba346" rel="noopener">LinkedIn</a>
+    <a href="resume.pdf">Résumé</a>
   </div>
+  <p class="off">Off the keyboard: husband and father · drums · landscape photography · golf and tennis · woodworking · the markets</p>
   <small>© <span id="year"></span> John R. Martinez</small>
 </footer>
 
